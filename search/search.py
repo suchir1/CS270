@@ -72,6 +72,20 @@ def tinyMazeSearch(problem):
     w = Directions.WEST
     return  [s, s, w, s, w, w, s, w]
 
+
+class Node():
+    def __init__(self, position, totalPath, totalCost):
+        self.pos = position
+        self.cost = totalCost
+        self.path = totalPath
+    def getPos(self):
+        return self.pos
+    def getPath(self):
+        return self.path
+    def getCost(self):
+        return self.cost
+
+
 def depthFirstSearch(problem):
     """
     Search the deepest nodes in the search tree first.
@@ -81,12 +95,46 @@ def depthFirstSearch(problem):
 
     To get started, you might want to try some of these simple commands to
     understand the search problem that is being passed in:
-
+"""
     print "Start:", problem.getStartState()
     print "Is the start a goal?", problem.isGoalState(problem.getStartState())
     print "Start's successors:", problem.getSuccessors(problem.getStartState())
-    """
-    "*** YOUR CODE HERE ***"
+    if(problem.isGoalState(problem.getStartState())):
+        return problem.getStartState()
+    frontier = util.Stack()
+    visited = {}
+    initialNode = Node(problem.getStartState(),[], 0)
+    frontier.push(initialNode)
+    while 1:
+        if(frontier.isEmpty()):
+            return list()
+        node = frontier.pop()
+        if node.getPos() in visited:
+            continue
+        visited[node.getPos()] = True
+        if problem.isGoalState(node.getPos()):
+            return node.getPath()
+        succ = problem.getSuccessors(node.getPos())
+        for succNode in succ:
+            newPath = node.getPath()[:]
+            newPath.append(succNode[1])
+            tempNode = Node(succNode[0],newPath, node.getCost()+succNode[2])
+            tempStack = util.Stack()
+            insertTemp = True
+            while not frontier.isEmpty():
+                nPrime = frontier.pop()
+                if nPrime.getPos()==tempNode.getPos():
+                    if tempNode.getCost()<nPrime.getCost():
+                        continue
+                    else:
+                        insertTemp = False
+                tempStack.push(nPrime)
+            while not tempStack.isEmpty():
+                frontier.push(tempStack.pop())
+            if insertTemp:
+                frontier.push(tempNode)
+
+
     util.raiseNotDefined()
 
 def breadthFirstSearch(problem):
