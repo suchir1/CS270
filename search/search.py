@@ -130,7 +130,6 @@ def depthFirstSearch(problem):
                 frontier.push(tempStack.pop())
             if insertTemp:
                 frontier.push(tempNode)
-    util.raiseNotDefined()
 
 def breadthFirstSearch(problem):
     if(problem.isGoalState(problem.getStartState())):
@@ -167,7 +166,6 @@ def breadthFirstSearch(problem):
                 frontier.push(tempStack.pop())
             if insertTemp:
                 frontier.push(tempNode)
-    util.raiseNotDefined()
 
 def uniformCostSearch(problem):
     if(problem.isGoalState(problem.getStartState())):
@@ -205,7 +203,6 @@ def uniformCostSearch(problem):
                 frontier.push(bestNode, bestNode.getCost())
             if insertTemp:
                 frontier.push(tempNode, tempNode.getCost())
-    util.raiseNotDefined()
 
 def nullHeuristic(state, problem=None):
     """
@@ -255,7 +252,6 @@ def aStarSearch(problem, heuristic=nullHeuristic):
                 frontier.push(bestNode, getHeuristicCost(problem, heuristic, bestNode))
             if insertTemp:
                 frontier.push(tempNode, getHeuristicCost(problem, heuristic, tempNode))
-    util.raiseNotDefined()
 
 
 # Abbreviations
