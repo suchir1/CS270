@@ -96,9 +96,6 @@ def depthFirstSearch(problem):
     To get started, you might want to try some of these simple commands to
     understand the search problem that is being passed in:
 """
-    print "Start:", problem.getStartState()
-    print "Is the start a goal?", problem.isGoalState(problem.getStartState())
-    print "Start's successors:", problem.getSuccessors(problem.getStartState())
     if(problem.isGoalState(problem.getStartState())):
         return problem.getStartState()
     frontier = util.Stack()
@@ -133,18 +130,81 @@ def depthFirstSearch(problem):
                 frontier.push(tempStack.pop())
             if insertTemp:
                 frontier.push(tempNode)
-
-
     util.raiseNotDefined()
 
 def breadthFirstSearch(problem):
-    """Search the shallowest nodes in the search tree first."""
-    "*** YOUR CODE HERE ***"
+    if(problem.isGoalState(problem.getStartState())):
+        return problem.getStartState()
+    frontier = util.Queue()
+    visited = {}
+    initialNode = Node(problem.getStartState(),[], 0)
+    frontier.push(initialNode)
+    while 1:
+        if(frontier.isEmpty()):
+            return list()
+        node = frontier.pop()
+        if node.getPos() in visited:
+            continue
+        visited[node.getPos()] = True
+        if problem.isGoalState(node.getPos()):
+            return node.getPath()
+        succ = problem.getSuccessors(node.getPos())
+        for succNode in succ:
+            newPath = node.getPath()[:]
+            newPath.append(succNode[1])
+            tempNode = Node(succNode[0],newPath, node.getCost()+succNode[2])
+            tempStack = util.Queue()
+            insertTemp = True
+            while not frontier.isEmpty():
+                nPrime = frontier.pop()
+                if nPrime.getPos()==tempNode.getPos():
+                    if tempNode.getCost()<nPrime.getCost():
+                        continue
+                    else:
+                        insertTemp = False
+                tempStack.push(nPrime)
+            while not tempStack.isEmpty():
+                frontier.push(tempStack.pop())
+            if insertTemp:
+                frontier.push(tempNode)
     util.raiseNotDefined()
 
 def uniformCostSearch(problem):
-    """Search the node of least total cost first."""
-    "*** YOUR CODE HERE ***"
+    if(problem.isGoalState(problem.getStartState())):
+        return problem.getStartState()
+    frontier = util.PriorityQueue()
+    visited = {}
+    initialNode = Node(problem.getStartState(),[], 0)
+    frontier.push(initialNode, 0)
+    while 1:
+        if(frontier.isEmpty()):
+            return list()
+        node = frontier.pop()
+        if node.getPos() in visited:
+            continue
+        visited[node.getPos()] = True
+        if problem.isGoalState(node.getPos()):
+            return node.getPath()
+        succ = problem.getSuccessors(node.getPos())
+        for succNode in succ:
+            newPath = node.getPath()[:]
+            newPath.append(succNode[1])
+            tempNode = Node(succNode[0],newPath, node.getCost()+succNode[2])
+            tempStack = util.PriorityQueue()
+            insertTemp = True
+            while not frontier.isEmpty():
+                nPrime = frontier.pop()
+                if nPrime.getPos()==tempNode.getPos():
+                    if tempNode.getCost()<nPrime.getCost():
+                        continue
+                    else:
+                        insertTemp = False
+                tempStack.push(nPrime, nPrime.getCost())
+            while not tempStack.isEmpty():
+                bestNode = tempStack.pop()
+                frontier.push(bestNode, bestNode.getCost())
+            if insertTemp:
+                frontier.push(tempNode, tempNode.getCost())
     util.raiseNotDefined()
 
 def nullHeuristic(state, problem=None):
@@ -154,9 +214,47 @@ def nullHeuristic(state, problem=None):
     """
     return 0
 
+def getHeuristicCost(problem, heuristic, node):
+    return node.getCost()+heuristic(node.getPos(), problem)
+
+
 def aStarSearch(problem, heuristic=nullHeuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
-    "*** YOUR CODE HERE ***"
+    if(problem.isGoalState(problem.getStartState())):
+        return problem.getStartState()
+    frontier = util.PriorityQueue()
+    visited = {}
+    initialNode = Node(problem.getStartState(),[], 0)
+    frontier.push(initialNode, 0)
+    while 1:
+        if(frontier.isEmpty()):
+            return list()
+        node = frontier.pop()
+        if node.getPos() in visited:
+            continue
+        visited[node.getPos()] = True
+        if problem.isGoalState(node.getPos()):
+            return node.getPath()
+        succ = problem.getSuccessors(node.getPos())
+        for succNode in succ:
+            newPath = node.getPath()[:]
+            newPath.append(succNode[1])
+            tempNode = Node(succNode[0],newPath, node.getCost()+succNode[2])
+            tempStack = util.PriorityQueue()
+            insertTemp = True
+            while not frontier.isEmpty():
+                nPrime = frontier.pop()
+                if nPrime.getPos()==tempNode.getPos():
+                    if getHeuristicCost(problem, heuristic, tempNode)<getHeuristicCost(problem, heuristic, nPrime):
+                        continue
+                    else:
+                        insertTemp = False
+                tempStack.push(nPrime, getHeuristicCost(problem, heuristic, nPrime))
+            while not tempStack.isEmpty():
+                bestNode = tempStack.pop()
+                frontier.push(bestNode, getHeuristicCost(problem, heuristic, bestNode))
+            if insertTemp:
+                frontier.push(tempNode, getHeuristicCost(problem, heuristic, tempNode))
     util.raiseNotDefined()
 
 
