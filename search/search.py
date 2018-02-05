@@ -236,7 +236,9 @@ def aStarSearch(problem, heuristic=nullHeuristic):
         for succNode in succ:
             newPath = node.getPath()[:]
             newPath.append(succNode[1])
-            tempNode = Node(succNode[0],newPath, node.getCost()+succNode[2])
+            tempNode = Node(succNode[0], newPath, node.getCost() + succNode[2])
+            if succNode[2]+getHeuristicCost(problem, heuristic, tempNode)<getHeuristicCost(problem, heuristic, node):
+                print "Not consistent, rip :'("
             tempStack = util.PriorityQueue()
             insertTemp = True
             while not frontier.isEmpty():

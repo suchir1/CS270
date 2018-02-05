@@ -287,6 +287,7 @@ class CornersProblem(search.SearchProblem):
         self._expanded = 0 # DO NOT CHANGE; Number of search nodes expanded
         # Please add any code here which you would like to use
         # in initializing the problem
+        self.cornerDists = {}
 
     def getStartState(self):
         """
@@ -351,7 +352,25 @@ class CornersProblem(search.SearchProblem):
         return len(actions)
 
 
-def cornersHeuristic(state, problem):
+
+def manhattanDistance(pos1, pos2):
+    xy1 = pos1
+    xy2 = pos2
+    return abs(xy1[0] - xy2[0]) + abs(xy1[1] - xy2[1])
+
+def distBetweenCorners(pos, cornerList):
+    if len(cornerList)==0:
+        return 0
+    totalCost = 0
+    for i in range(len(cornerList)):
+        if cornerList[i][0]==pos[0] or cornerList[i][1]==pos[1]:
+            totalCost+=manhattanDistance(pos, cornerList[i])
+            pos = cornerList[i]
+            del(cornerList[i])
+            return totalCost + distBetweenCorners(pos, cornerList)
+    return manhattanDistance(pos, cornerList[0])
+
+def cornersHeuristic1(state, problem):
     """
     A heuristic for the CornersProblem that you defined.
 
@@ -364,10 +383,32 @@ def cornersHeuristic(state, problem):
     shortest path from the state to a goal of the problem; i.e.  it should be
     admissible (as well as consistent).
     """
+    cornersBool = state[1]
+    if all(cornersBool):
+        return 0
     corners = problem.corners # These are the corner coordinates
     walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
+    totalCost = [99999999999 for i in range(4)]
+    for i in range(4):
+        if cornersBool[i]:
+            totalCost[i] = 9999999999999
+        else:
+            totalCost[i] += manhattanDistance(state[0], corners[i])
+            cornersBool = list(cornersBool)
+            cornersBool[i] = True
+            cornersBool = tuple(cornersBool)
+            unvisited = list()
+            for i in range(4):
+                if not cornersBool[i]:
+                    unvisited.append(corners[i])
+            totalCost[i] +=  distBetweenCorners(corners[i], unvisited)
+    return min(totalCost)
 
-    return 0 # Default to trivial solution
+def cornersHeuristic(state, problem):
+    cornersBool = state[1]
+
+
+
 
 class AStarCornersAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
