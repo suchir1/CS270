@@ -237,7 +237,7 @@ class MyPositionSearchProblem(search.SearchProblem):
     Note: this search problem is fully specified; you should NOT change it.
     """
 
-    def __init__(self, gameState, pos,  costFn = lambda x: 1, goal=(1,1), start=None, warn=True, visualize=False):
+    def __init__(self, gameState, pos,  costFn = lambda x: 1, goal=(1,1), start=None, warn=False, visualize=False):
         """
         Stores the start and goal.
 
@@ -453,68 +453,45 @@ def manhattanDistance(pos1, pos2):
     xy2 = pos2
     return abs(xy1[0] - xy2[0]) + abs(xy1[1] - xy2[1])
 
-def distBetweenCorners(pos, cornerList):
+def distBetweenCorners(pos, cornerList, problem):
     if len(cornerList)==0:
         return 0
     totalCost = 0
     for i in range(len(cornerList)):
         if cornerList[i][0]==pos[0] or cornerList[i][1]==pos[1]:
-            totalCost+=manhattanDistance(pos, cornerList[i])
+            if (pos, cornerList[i]) not in problem.cornerDists:
+                newProb = MyPositionSearchProblem(problem.startState, pos, goal=cornerList[i])
+                cost = newUniformCostSearch(pos, newProb)
+                problem.cornerDists[(pos, cornerList[i])]=cost
+                problem.cornerDists[(cornerList[i], pos)] = cost
+            totalCost= totalCost + problem.cornerDists[(pos,cornerList[i])]
             pos = cornerList[i]
             del(cornerList[i])
-            return totalCost + distBetweenCorners(pos, cornerList)
-    return manhattanDistance(pos, cornerList[0])
+            return totalCost + distBetweenCorners(pos, cornerList, problem)
+    if (pos, cornerList[0]) not in problem.cornerDists:
+        newProb = MyPositionSearchProblem(problem.startState, pos, goal=cornerList[0])
+        cost = newUniformCostSearch(pos, newProb)
+        problem.cornerDists[(pos, cornerList[0])] = cost
+        problem.cornerDists[(cornerList[0], pos)] = cost
+    return problem.cornerDists[(pos,cornerList[0])]
 
-def cornersHeuristic1(state, problem):
-    """
-    A heuristic for the CornersProblem that you defined.
-
-      state:   The current search state
-               (a data structure you chose in your search problem)
-
-      problem: The CornersProblem instance for this layout.
-
-    This function should always return a number that is a lower bound on the
-    shortest path from the state to a goal of the problem; i.e.  it should be
-    admissible (as well as consistent).
-    """
-    cornersBool = state[1]
-    if all(cornersBool):
+def newUniformCostSearch(pos, problem):
+    if(problem.isGoalState(pos)):
         return 0
-    corners = problem.corners # These are the corner coordinates
-    walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
-    totalCost = [99999999999 for i in range(4)]
-    for i in range(4):
-        if cornersBool[i]:
-            totalCost[i] = 9999999999999
-        else:
-            totalCost[i] += manhattanDistance(state[0], corners[i])
-            cornersBool = list(cornersBool)
-            cornersBool[i] = True
-            cornersBool = tuple(cornersBool)
-            unvisited = list()
-            for i in range(4):
-                if not cornersBool[i]:
-                    unvisited.append(corners[i])
-            totalCost[i] +=  distBetweenCorners(corners[i], unvisited)
-    return min(totalCost)
-
-def newUniformCostSearch(problem):
-    if(problem.isGoalState(problem.getStartState())):
-        return problem.getStartState()
     frontier = util.PriorityQueue()
     visited = {}
-    initialNode = search.Node(problem.getStartState(),[], 0)
+    initialNode = search.Node(pos,[], 0)
     frontier.push(initialNode, 0)
     totalPath = 0
     while 1:
         if(frontier.isEmpty()):
-            return list()
+            return 99999999999999999999
         node = frontier.pop()
         if node.getPos() in visited:
             continue
         visited[node.getPos()] = True
         if problem.isGoalState(node.getPos()):
+            print "Node Cost: ", node.getCost()
             return node.getCost()
         succ = problem.getSuccessors(node.getPos())
         for succNode in succ:
@@ -539,8 +516,30 @@ def newUniformCostSearch(problem):
 
 def cornersHeuristic(state, problem):
     cornersBool = state[1]
-    newProb = MyPositionSearchProblem(problem.startState, problem.corners[3], goal=problem.corners[0])
-
+    if all(cornersBool):
+        return 0
+    corners = problem.corners # These are the corner coordinates
+    walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
+    totalCost = [99999999999 for i in range(4)]
+    for i in range(4):
+        cornersBool = state[1]
+        if cornersBool[i]:
+            totalCost[i] = 9999999999999
+        else:
+            #totalCost[i] = manhattanDistance(state[0], corners[i])
+            u = list()
+            u.append(corners[i])
+            totalCost[i] = distBetweenCorners(state[0], u, problem)
+            cornersBool = list(cornersBool)
+            cornersBool[i] = True
+            cornersBool = tuple(cornersBool)
+            unvisited = list()
+            for i in range(4):
+                if not cornersBool[i]:
+                    unvisited.append(corners[i])
+            totalCost[i] +=  distBetweenCorners(corners[i], unvisited, problem)
+    print "Heuristic: ", min(totalCost)
+    return min(totalCost)
 
 
 
