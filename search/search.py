@@ -233,7 +233,6 @@ def aStarSearch(problem, heuristic=nullHeuristic):
         if node.getPos() in visited:
             continue
         visited[node.getPos()] = True
-        print getHeuristicCost(problem, heuristic, node)
         if problem.isGoalState(node.getPos()):
             return node.getPath()
         succ = problem.getSuccessors(node.getPos())
