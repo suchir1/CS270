@@ -491,7 +491,6 @@ def newUniformCostSearch(pos, problem):
             continue
         visited[node.getPos()] = True
         if problem.isGoalState(node.getPos()):
-            print "Node Cost: ", node.getCost()
             return node.getCost()
         succ = problem.getSuccessors(node.getPos())
         for succNode in succ:
@@ -538,7 +537,6 @@ def cornersHeuristic(state, problem):
                 if not cornersBool[i]:
                     unvisited.append(corners[i])
             totalCost[i] +=  distBetweenCorners(corners[i], unvisited, problem)
-    print "Heuristic: ", min(totalCost)
     return min(totalCost)
 
 

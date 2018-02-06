@@ -211,8 +211,11 @@ def nullHeuristic(state, problem=None):
     """
     return 0
 
-def getHeuristicCost(problem, heuristic, node):
+def getFCost(problem, heuristic, node):
     return node.getCost()+heuristic(node.getPos(), problem)
+
+def getHeuristicCost(problem, heuristic, node):
+    return heuristic(node.getPos(), problem)
 
 
 def aStarSearch(problem, heuristic=nullHeuristic):
@@ -222,7 +225,7 @@ def aStarSearch(problem, heuristic=nullHeuristic):
     frontier = util.PriorityQueue()
     visited = {}
     initialNode = Node(problem.getStartState(),[], 0)
-    frontier.push(initialNode, 0)
+    frontier.push(initialNode, getFCost(problem, heuristic, initialNode))
     while 1:
         if(frontier.isEmpty()):
             return list()
@@ -230,6 +233,7 @@ def aStarSearch(problem, heuristic=nullHeuristic):
         if node.getPos() in visited:
             continue
         visited[node.getPos()] = True
+        print getHeuristicCost(problem, heuristic, node)
         if problem.isGoalState(node.getPos()):
             return node.getPath()
         succ = problem.getSuccessors(node.getPos())
@@ -238,22 +242,22 @@ def aStarSearch(problem, heuristic=nullHeuristic):
             newPath.append(succNode[1])
             tempNode = Node(succNode[0], newPath, node.getCost() + succNode[2])
             if succNode[2]+getHeuristicCost(problem, heuristic, tempNode)<getHeuristicCost(problem, heuristic, node):
-                print "Not consistent, rip :'(", succNode[2], getHeuristicCost(problem, heuristic, tempNode), getHeuristicCost(problem, heuristic, node)
+                print "Not consistent, rip :'(", succNode[2], getFCost(problem, heuristic, tempNode), getFCost(problem, heuristic, node)
             tempStack = util.PriorityQueue()
             insertTemp = True
             while not frontier.isEmpty():
                 nPrime = frontier.pop()
                 if nPrime.getPos()==tempNode.getPos():
-                    if getHeuristicCost(problem, heuristic, tempNode)<getHeuristicCost(problem, heuristic, nPrime):
+                    if getFCost(problem, heuristic, tempNode)<getFCost(problem, heuristic, nPrime):
                         continue
                     else:
                         insertTemp = False
-                tempStack.push(nPrime, getHeuristicCost(problem, heuristic, nPrime))
+                tempStack.push(nPrime, getFCost(problem, heuristic, nPrime))
             while not tempStack.isEmpty():
                 bestNode = tempStack.pop()
-                frontier.push(bestNode, getHeuristicCost(problem, heuristic, bestNode))
+                frontier.push(bestNode, getFCost(problem, heuristic, bestNode))
             if insertTemp:
-                frontier.push(tempNode, getHeuristicCost(problem, heuristic, tempNode))
+                frontier.push(tempNode, getFCost(problem, heuristic, tempNode))
 
 
 # Abbreviations
