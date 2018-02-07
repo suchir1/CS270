@@ -28,7 +28,39 @@ def wrap_solution(solution):
     else:
         return str(solution)
 
+# BEGIN SOLUTION NO PROMPT
+def patchExpansionExploit(problem):
+    problem._getSuccessors = problem.getSuccessors
+    problem._secretKeyLol = 0
+    def patchedSuccessors(problem, state):
+        problem._secretKeyLol += 1
+        return problem._getSuccessors(state)
+    problem.getSuccessors = lambda state: patchedSuccessors(problem, state)
+# END SOLUTION NO PROMPT
 
+# BEGIN SOLUTION NO PROMPT
+def invertLayout(layout_text):
+    # Keep lower left fix as this is hardcoded in PositionSearchProblem (gah)
+    # as the goal.
+    lines = [l.strip() for l in layout_text.split('\n')]
+    h = len(lines)
+    w = len(lines[0])
+    tiles = {}
+    for y, line in enumerate(lines):
+        for x, tile in enumerate(line):
+            # (x,y)
+            # (0,0) -> (h,w)
+            # (0,h) -> (0,w)
+            tiles[h-1-y, w-1-x] = tile
+
+    new_lines = []
+    for y in range(w):
+        new_lines.append("")
+        for x in range(h):
+            new_lines[-1] += tiles[x,y]
+    #return layout_text
+    return "\n".join(new_lines)
+# END SOLUTION NO PROMPT
 
 
 def followAction(state, action, problem):
@@ -136,6 +168,19 @@ class GraphSearch(SearchProblem):
 goal_states: %s
 %s""" % (self.start_state, " ".join(self.goals), "\n".join(edges))
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        new_successors = {}
+        for state in self.successors:
+            new_successors[state] = []
+            for (next_state, action, cost) in self.successors[state]:
+                new_successors[state].append((next_state, action.strip("_"), cost))
+        self.successors = new_successors
+        newOrderedSuccessorTuples = []
+        for state, action, next, cost in self.orderedSuccessorTuples:
+            newOrderedSuccessorTuples.append((state, action.strip("_"), next, cost))
+        self.orderedSuccessorTuples = newOrderedSuccessorTuples
+    # END SOLUTION NO PROMPT
 
 
 def parseHeuristic(heuristicText):
@@ -250,6 +295,13 @@ class GraphSearchTest(testClasses.TestCase):
         handle.close()
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        problem = GraphSearch(self.graph_text)
+        problem.createPublicVersion()
+        self.testDict['graph'] = str(problem)
+        self.graph_text = self.testDict['graph']
+    # END SOLUTION NO PROMPT
 
 
 class PacmanSearchTest(testClasses.TestCase):
@@ -278,6 +330,9 @@ class PacmanSearchTest(testClasses.TestCase):
         if self.costFn != None:
             problemOptions['costFn'] = self.costFn
         problem = problemClass(start_state, **problemOptions)
+        # BEGIN SOLUTION NO PROMPT
+        patchExpansionExploit(problem)
+        # END SOLUTION NO PROMPT
         heuristic = getattr(searchAgents, self.heuristicName) if self.heuristicName != None else None
 
         if heuristic != None:
@@ -294,6 +349,9 @@ class PacmanSearchTest(testClasses.TestCase):
             return None, None, 'Output of %s must be a list of actions from game.Directions' % self.alg
 
         expanded = problem._expanded
+        # BEGIN SOLUTION NO PROMPT
+        expanded = problem._secretKeyLol
+        # END SOLUTION NO PROMPT
         return solution, expanded, None
 
     def execute(self, grades, moduleDict, solutionDict):
@@ -365,6 +423,11 @@ class PacmanSearchTest(testClasses.TestCase):
         handle.close()
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        self.testDict['layout'] = invertLayout(self.testDict['layout'])
+        self.layout_text = self.testDict['layout']
+    # END SOLUTION NO PROMPT
 
 from game import Actions
 def getStatesFromPath(start, path):
@@ -446,6 +509,11 @@ class CornerProblemTest(testClasses.TestCase):
         handle.write('solution_length: "%s"\n' % length)
         handle.close()
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        self.testDict['layout'] = invertLayout(self.testDict['layout'])
+        self.layoutText = self.testDict['layout']
+    # END SOLUTION NO PROMPT
 
 
 
@@ -484,17 +552,28 @@ class HeuristicTest(testClasses.TestCase):
 
         return problem, state, heuristic
 
-    def checkHeuristic(self, heuristic, problem, state, solutionCost):
+    def checkHeuristic(self, heuristic, problem, state, solutionCost, grades):
         h0 = heuristic(state, problem)
 
         if solutionCost == 0:
             if h0 == 0:
                 return True, ''
             else:
-                return False, 'Heuristic failed H(goal) == 0 test'
+                if not grades.pointsDeducted['q7']:
+                    grades.addMessage('FAIL: Heuristic failed H(goal) == 0 test')
+                    grades.deductPoints(3)
+                    grades.pointsDeducted['q7'] = True  # TODO: this is a hack. look for better way to get question number?
+                return True, ''
+                # Old code:
+                # return False, 'Heuristic failed H(goal) == 0 test'
 
         if h0 < 0:
-            return False, 'Heuristic failed H >= 0 test'
+            if not grades.pointsDeducted['q7']:
+                grades.addMessage('FAIL: Heuristic failed H >= 0 test')
+                grades.deductPoints(3)
+                grades.pointsDeducted['q7'] = True
+            # Old code:
+            # return False, 'Heuristic failed H >= 0 test'
         if not h0 > 0:
             return False, 'Heuristic failed non-triviality test'
         if not h0 <= solutionCost:
@@ -513,7 +592,7 @@ class HeuristicTest(testClasses.TestCase):
         solutionCost = int(solutionDict['solution_cost'])
         problem, state, heuristic = self.setupProblem(searchAgents)
 
-        passed, message = self.checkHeuristic(heuristic, problem, state, solutionCost)
+        passed, message = self.checkHeuristic(heuristic, problem, state, solutionCost, grades)
 
         if not passed:
             grades.addMessage('FAIL: %s' % self.path)
@@ -541,6 +620,11 @@ class HeuristicTest(testClasses.TestCase):
         handle.close()
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        self.testDict['layout'] = invertLayout(self.testDict['layout'])
+        self.layoutText = self.testDict['layout']
+    # END SOLUTION NO PROMPT
 
 
 
@@ -563,6 +647,9 @@ class HeuristicGrade(testClasses.TestCase):
         gameState.initialize(lay, 0)
         problemClass = getattr(searchAgents, self.searchProblemClassName)
         problem = problemClass(gameState)
+        # BEGIN SOLUTION NO PROMPT
+        patchExpansionExploit(problem)
+        # END SOLUTION NO PROMPT
         state = problem.getStartState()
         heuristic = getattr(searchAgents, self.heuristicName)
 
@@ -577,6 +664,9 @@ class HeuristicGrade(testClasses.TestCase):
         path = search.astar(problem, heuristic)
 
         expanded = problem._expanded
+        # BEGIN SOLUTION NO PROMPT
+        expanded = problem._secretKeyLol
+        # END SOLUTION NO PROMPT
 
         if not checkSolution(problem, path):
             grades.addMessage('FAIL: %s' % self.path)
@@ -584,7 +674,7 @@ class HeuristicGrade(testClasses.TestCase):
             grades.addMessage('\tpath returned by astar: %s' % expanded)
             return False
 
-        grades.addPoints(self.basePoints)
+        grades.addPoints(self.basePoints)  # 6 base points for foodHeuristic
         points = 0
         for threshold in self.thresholds:
             if expanded <= threshold:
@@ -607,6 +697,11 @@ class HeuristicGrade(testClasses.TestCase):
         handle.close()
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        self.testDict['layout'] = invertLayout(self.testDict['layout'])
+        self.layoutText = self.testDict['layout']
+    # END SOLUTION NO PROMPT
 
 
 
@@ -679,6 +774,11 @@ class ClosestDotTest(testClasses.TestCase):
         handle.close()
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        self.testDict['layout'] = invertLayout(self.testDict['layout'])
+        self.layoutText = self.testDict['layout']
+    # END SOLUTION NO PROMPT
 
 
 
@@ -719,6 +819,7 @@ class CornerHeuristicSanity(testClasses.TestCase):
         heuristics = []
         for state in states:
             heuristics.append(searchAgents.cornersHeuristic(state, problem))
+
         for i in range(0, len(heuristics) - 1):
             h0 = heuristics[i]
             h1 = heuristics[i+1]
@@ -728,12 +829,18 @@ class CornerHeuristicSanity(testClasses.TestCase):
                 return False
             # cornerPosH
             if h0 < 0 or h1 <0:
-                grades.addMessage('FAIL: non-positive heuristic')
-                return False
+                # return False
+                if not grades.pointsDeducted['q6']:
+                    grades.addMessage('FAIL: non-positive heuristic')
+                    grades.deductPoints(3)
+                    grades.pointsDeducted['q6'] = True  # TODO: this is a hack. better way to get question?
         # cornerGoalH
         if heuristics[len(heuristics) - 1] != 0:
-            grades.addMessage('FAIL: heuristic non-zero at goal')
-            return False
+            # return False
+            if not grades.pointsDeducted['q6']:
+                grades.addMessage('FAIL: heuristic non-zero at goal')
+                grades.deductPoints(3)
+                grades.pointsDeducted['q6'] = True
         grades.addMessage('PASS: heuristic value less than true cost at start state')
         return True
 
@@ -757,6 +864,11 @@ class CornerHeuristicSanity(testClasses.TestCase):
         handle.close()
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        self.testDict['layout'] = invertLayout(self.testDict['layout'])
+        self.layout_text = self.testDict['layout']
+    # END SOLUTION NO PROMPT
 
 
 class CornerHeuristicPacman(testClasses.TestCase):
@@ -771,10 +883,14 @@ class CornerHeuristicPacman(testClasses.TestCase):
         total = 0
         true_cost = float(solutionDict['cost'])
         thresholds = map(int, solutionDict['thresholds'].split())
+        basePoints = int(solutionDict['basePoints'])
         game_state = pacman.GameState()
         lay = layout.Layout([l.strip() for l in self.layout_text.split('\n')])
         game_state.initialize(lay, 0)
         problem = searchAgents.CornersProblem(game_state)
+        # BEGIN SOLUTION NO PROMPT
+        patchExpansionExploit(problem)
+        # END SOLUTION NO PROMPT
         start_state = problem.getStartState()
         if searchAgents.cornersHeuristic(start_state, problem) > true_cost:
             grades.addMessage('FAIL: Inadmissible heuristic')
@@ -787,10 +903,15 @@ class CornerHeuristicPacman(testClasses.TestCase):
             grades.addMessage('FAIL: Inconsistent heuristic')
             return False
         expanded = problem._expanded
+        # BEGIN SOLUTION NO PROMPT
+        expanded = problem._secretKeyLol
+        # END SOLUTION NO PROMPT
+
+        grades.addPoints(basePoints)
         points = 0
         for threshold in thresholds:
             if expanded <= threshold:
-                points += 1
+                points += 3
         grades.addPoints(points)
         if points >= len(thresholds):
             grades.addMessage('PASS: Heuristic resulted in expansion of %d nodes' % expanded)
@@ -815,7 +936,12 @@ class CornerHeuristicPacman(testClasses.TestCase):
         solution = search.astar(problem, searchAgents.cornersHeuristic)
         handle.write('cost: "%d"\n' % len(solution))
         handle.write('path: """\n%s\n"""\n' % wrap_solution(solution))
-        handle.write('thresholds: "2000 1600 1200"\n')
+        handle.write('thresholds: "1600 1200"\n')
         handle.close()
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        self.testDict['layout'] = invertLayout(self.testDict['layout'])
+        self.layout_text = self.testDict['layout']
+    # END SOLUTION NO PROMPT

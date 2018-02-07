@@ -13,4 +13,5 @@ South South South South East East North North East East South South
 South South South North North North North North North North West West
 North North East East North North
 """
-thresholds: "2000 1600 1200"
+basePoints: "4"
+thresholds: "1600 1200"

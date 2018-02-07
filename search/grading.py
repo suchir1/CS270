@@ -44,6 +44,7 @@ class Grades:
     self.gsOutput = gsOutput  # GradeScope output
     self.mute = muteOutput
     self.prereqs = defaultdict(set)
+    self.pointsDeducted = dict([(q, False) for q in self.questions])
 
     #print 'Autograder transcript for %s' % self.project
     print 'Starting on %d-%d at %d:%02d:%02d' % self.start
@@ -205,7 +206,7 @@ to follow your instructor's guidelines to receive credit on your project.
     out_dct['tests'] = tests_out
 
     # file output
-    with open('gradescope_response.json', 'w') as outfile:
+    with open('../../results/results.json', 'w') as outfile:
         json.dump(out_dct, outfile)
     return
 
