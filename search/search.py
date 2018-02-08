@@ -107,20 +107,7 @@ def depthFirstSearch(problem):
             newPath = node.getPath()[:]
             newPath.append(succNode[1])
             tempNode = Node(succNode[0],newPath, node.getCost()+succNode[2])
-            tempStack = util.Stack()
-            insertTemp = True
-            while not frontier.isEmpty():
-                nPrime = frontier.pop()
-                if nPrime.getPos()==tempNode.getPos():
-                    if tempNode.getCost()<nPrime.getCost():
-                        continue
-                    else:
-                        insertTemp = False
-                tempStack.push(nPrime)
-            while not tempStack.isEmpty():
-                frontier.push(tempStack.pop())
-            if insertTemp:
-                frontier.push(tempNode)
+            frontier.push(tempNode)
 
 def breadthFirstSearch(problem):
     if(problem.isGoalState(problem.getStartState())):
