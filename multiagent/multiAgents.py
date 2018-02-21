@@ -307,8 +307,57 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
           All ghosts should be modeled as choosing uniformly at random from their
           legal moves.
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        depth = self.depth
+        return self.rootNode(gameState, 1)
+
+
+    def rootNode(self, gameState, depth):
+        moves = gameState.getLegalActions(0)
+        vals = list()
+        for move in moves:
+            newState = gameState.generateSuccessor(0, move)
+            if newState.isWin() or newState.isLose():
+                vals.append(self.evaluationFunction(newState))
+            else:
+                vals.append(self.minNode(newState, depth, 1))
+        return moves[vals.index(max(vals))]
+
+    def maxNode(self, gameState, depth):
+        moves = gameState.getLegalActions(0)
+        vals = list()
+        for move in moves:
+            newState = gameState.generateSuccessor(0, move)
+            if newState.isWin() or newState.isLose():
+                vals.append(self.evaluationFunction(newState))
+            else:
+                vals.append(self.minNode(newState, depth, 1))
+        return max(vals)
+
+
+    def minNode(self, gameState, depth, agentNum):
+        moves = gameState.getLegalActions(agentNum)
+        vals = list()
+        if agentNum == gameState.getNumAgents()-1 and depth == self.depth:
+            for move in moves:
+                newState = gameState.generateSuccessor(agentNum, move)
+                vals.append(self.evaluationFunction(newState))
+            return sum(vals)/len(vals)
+        if agentNum == gameState.getNumAgents()-1:
+            for move in moves:
+                newState = gameState.generateSuccessor(agentNum, move)
+                if newState.isWin() or newState.isLose():
+                    vals.append(self.evaluationFunction(newState))
+                else:
+                    vals.append(self.maxNode(newState, depth+1))
+            return sum(vals)/len(vals)
+        else:
+            for move in moves:
+                newState = gameState.generateSuccessor(agentNum, move)
+                if newState.isWin() or newState.isLose():
+                    vals.append(self.evaluationFunction(newState))
+                else:
+                    vals.append(self.minNode(newState, depth, agentNum+1))
+            return sum(vals)/len(vals)
 
 
 def betterEvaluationFunction(currentGameState):
@@ -316,10 +365,43 @@ def betterEvaluationFunction(currentGameState):
       Your extreme ghost-hunting, pellet-nabbing, food-gobbling, unstoppable
       evaluation function (question 5).
 
-      DESCRIPTION: <write something here so we know what you did>
+      So for this one I actually just copied the evaluation function that I had for
+      q1 because that actually worked pretty well, and it seems to work pretty consistently
+      (knock on wood, hopefully it's consistent when it matters lol)
+
+      There are a few differences though:
+      I changed successorGameState to currentGameState so I didn't have to refactor everything lol
+      I added something that encourages pellet eating because I'm pretty sure that increases score
     """
-    "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    successorGameState = currentGameState
+    currentFood = currentGameState.getFood().asList()
+    newPos = successorGameState.getPacmanPosition()
+    newFood = successorGameState.getFood()
+    newGhostStates = successorGameState.getGhostStates()
+    newScaredTimes = [
+        ghostState.scaredTimer for ghostState in newGhostStates]
+    newFood = newFood.asList()
+    score = 0
+    closest = 999999999999
+    for pos in newFood:
+        dist = manhattanDistance(newPos, pos)
+        score += 2 / (1 + dist)
+        if dist < closest:
+            closest = dist
+    score -= closest
+    if len(currentFood) > len(newFood):
+        score += 10
+    for i in range(len(newGhostStates)):
+        if newScaredTimes[i] > 1:
+            score += 1 / \
+                (1 + manhattanDistance(newGhostStates[i].getPosition(), newPos))
+        else:
+            score -= 1 / \
+                (1 + manhattanDistance(newGhostStates[i].getPosition(), newPos))
+    if newPos =
+    if successorGameState.isWin():
+        score = 99999999
+    return score + successorGameState.getScore()
 
 
 # Abbreviation
