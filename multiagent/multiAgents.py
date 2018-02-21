@@ -214,7 +214,6 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
       Your minimax agent with alpha-beta pruning (question 3)
     """
 
-    # TODO: use <, > not <=,>= for alpha beta pruning
 
     def getAction(self, gameState):
         """
