@@ -227,49 +227,43 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
     def rootNode(self, gameState, depth, alpha, beta):
         moves = gameState.getLegalActions(0)
         vals = list()
-        v = -9999999999
         for move in moves:
             newState = gameState.generateSuccessor(0, move)
             if newState.isWin() or newState.isLose():
                 vals.append(self.evaluationFunction(newState))
             else:
                 vals.append(self.minNode(newState, depth, 1, alpha, beta))
-            v = max(v, vals[-1])
-            if v > beta:
-                return moves[vals.index(v)]
-            alpha = max(alpha,v)
-        return moves[vals.index(v)]
+            alpha = max(alpha, vals[-1])
+            if alpha > beta:
+                return moves[vals.index(max(vals))]
+        return moves[vals.index(max(vals))]
 
     def maxNode(self, gameState, depth, alpha, beta):
         moves = gameState.getLegalActions(0)
         vals = list()
-        v = -9999999999
         for move in moves:
             newState = gameState.generateSuccessor(0, move)
             if newState.isWin() or newState.isLose():
                 vals.append(self.evaluationFunction(newState))
             else:
                 vals.append(self.minNode(newState, depth, 1, alpha, beta))
-            v = max(v, vals[-1])
-            if v > beta:
-                return v
-            alpha = max(alpha, v)
-        return v
+            alpha = max(alpha, vals[-1])
+            if alpha > beta:
+                return beta
+        return alpha
 
 
     def minNode(self, gameState, depth, agentNum, alpha, beta):
         moves = gameState.getLegalActions(agentNum)
         vals = list()
-        v = 99999999999
         if agentNum == gameState.getNumAgents()-1 and depth == self.depth:
             for move in moves:
                 newState = gameState.generateSuccessor(agentNum, move)
                 vals.append(self.evaluationFunction(newState))
-                v = min(v, vals[-1])
-                if v < alpha:
-                    return v
-                beta = min(beta, v)
-            return v
+                beta = min(beta, vals[-1])
+                if beta < alpha:
+                    return alpha
+            return beta
         if agentNum == gameState.getNumAgents()-1:
             for move in moves:
                 newState = gameState.generateSuccessor(agentNum, move)
@@ -277,11 +271,10 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
                     vals.append(self.evaluationFunction(newState))
                 else:
                     vals.append(self.maxNode(newState, depth+1, alpha, beta))
-                v = min(v, vals[-1])
-                if v < alpha:
-                    return v
-                beta = min(beta, v)
-            return v
+                beta = min(beta, vals[-1])
+                if beta < alpha:
+                    return alpha
+            return beta
         else:
             for move in moves:
                 newState = gameState.generateSuccessor(agentNum, move)
@@ -289,11 +282,10 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
                     vals.append(self.evaluationFunction(newState))
                 else:
                     vals.append(self.minNode(newState, depth, agentNum+1, alpha, beta))
-                v = min(v, vals[-1])
-                if v < alpha:
-                    return v
-                beta = min(beta, v)
-            return v
+                beta = min(beta, vals[-1])
+                if beta < alpha:
+                    return alpha
+            return beta
 
 
 class ExpectimaxAgent(MultiAgentSearchAgent):
