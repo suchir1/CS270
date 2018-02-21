@@ -393,7 +393,7 @@ def betterEvaluationFunction(currentGameState):
         score += 10
     for i in range(len(newGhostStates)):
         if newScaredTimes[i] > 1:
-            score += 1 / \
+            score += 2 / \
                 (1 + manhattanDistance(newGhostStates[i].getPosition(), newPos))
         else:
             score -= 1 / \
