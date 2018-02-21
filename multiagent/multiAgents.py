@@ -371,7 +371,7 @@ def betterEvaluationFunction(currentGameState):
 
       There are a few differences though:
       I changed successorGameState to currentGameState so I didn't have to refactor everything lol
-      I added something that encourages pellet eating because I'm pretty sure that increases score
+      I added the time each ghost is scared to encourage pellet eating because I'm pretty sure that increases score
     """
     successorGameState = currentGameState
     currentFood = currentGameState.getFood().asList()
@@ -398,7 +398,8 @@ def betterEvaluationFunction(currentGameState):
         else:
             score -= 1 / \
                 (1 + manhattanDistance(newGhostStates[i].getPosition(), newPos))
-    if newPos =
+    for time in newScaredTimes:
+        score += time/2
     if successorGameState.isWin():
         score = 99999999
     return score + successorGameState.getScore()
