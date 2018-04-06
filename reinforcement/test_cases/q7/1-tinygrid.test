@@ -1,4 +1,4 @@
-class: "EpsilonGreedyTest"
+class: "ApproximateQLearningTest"
 
 # GridWorld specification
 #    _ is empty space

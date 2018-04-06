@@ -194,6 +194,38 @@ class ValueIterationTest(testClasses.TestCase):
         values = pretty.split()
         return values
 
+    # BEGIN SOLUTION NO PROMPT
+    def invertGrid(self, grid):
+        invertedWidth = grid.height
+        invertedHeight = grid.width
+        inverted = gridworld.Grid(invertedWidth, invertedHeight)
+        for invertedX in range(invertedWidth):
+            for invertedY in range(invertedHeight):
+                inverted[invertedX][invertedY] = grid[invertedY][invertedX]
+        return gridworld.Gridworld(inverted)
+    def gridTestString(self, grid):
+        string = ''
+        for ybar in range(grid.height):
+            y = grid.height - ybar - 1
+            for x in range(grid.width):
+                gridChar = grid[x][y]
+                gridString = ''
+                if gridChar == '#':
+                    gridString = '    #'
+                elif gridChar == ' ':
+                    gridString = '    _'
+                elif gridChar == 'S':
+                    gridString = '    S'
+                else:
+                    gridString = '{0:5d}'.format(gridChar)
+                string += gridString
+            if ybar < grid.height - 1:
+                string += '\n'
+        return string
+    def createPublicVersion(self):
+        self.grid = self.invertGrid(self.grid.grid)
+        self.testDict['grid'] = self.gridTestString(self.grid.grid)
+    # END SOLUTION NO PROMPT
 
 class AsynchronousValueIterationTest(ValueIterationTest):
     def runAgent(self, moduleDict, numIterations):
@@ -409,6 +441,38 @@ class ApproximateQLearningTest(testClasses.TestCase):
         values = pretty.split()
         return values
 
+    # BEGIN SOLUTION NO PROMPT
+    def invertGrid(self, grid):
+        invertedWidth = grid.height
+        invertedHeight = grid.width
+        inverted = gridworld.Grid(invertedWidth, invertedHeight)
+        for invertedX in range(invertedWidth):
+            for invertedY in range(invertedHeight):
+                inverted[invertedX][invertedY] = grid[invertedY][invertedX]
+        return gridworld.Gridworld(inverted)
+    def gridTestString(self, grid):
+        string = ''
+        for ybar in range(grid.height):
+            y = grid.height - ybar - 1
+            for x in range(grid.width):
+                gridChar = grid[x][y]
+                gridString = ''
+                if gridChar == '#':
+                    gridString = '    #'
+                elif gridChar == ' ':
+                    gridString = '    _'
+                elif gridChar == 'S':
+                    gridString = '    S'
+                else:
+                    gridString = '{0:5d}'.format(gridChar)
+                string += gridString
+            if ybar < grid.height - 1:
+                string += '\n'
+        return string
+    def createPublicVersion(self):
+        self.grid = self.invertGrid(self.grid.grid)
+        self.testDict['grid'] = self.gridTestString(self.grid.grid)
+    # END SOLUTION NO PROMPT
 
 class QLearningTest(testClasses.TestCase):
 
@@ -589,6 +653,38 @@ class QLearningTest(testClasses.TestCase):
         values = pretty.split()
         return values
 
+    # BEGIN SOLUTION NO PROMPT
+    def invertGrid(self, grid):
+        invertedWidth = grid.height
+        invertedHeight = grid.width
+        inverted = gridworld.Grid(invertedWidth, invertedHeight)
+        for invertedX in range(invertedWidth):
+            for invertedY in range(invertedHeight):
+                inverted[invertedX][invertedY] = grid[invertedY][invertedX]
+        return gridworld.Gridworld(inverted)
+    def gridTestString(self, grid):
+        string = ''
+        for ybar in range(grid.height):
+            y = grid.height - ybar - 1
+            for x in range(grid.width):
+                gridChar = grid[x][y]
+                gridString = ''
+                if gridChar == '#':
+                    gridString = '    #'
+                elif gridChar == ' ':
+                    gridString = '    _'
+                elif gridChar == 'S':
+                    gridString = '    S'
+                else:
+                    gridString = '{0:5d}'.format(gridChar)
+                string += gridString
+            if ybar < grid.height - 1:
+                string += '\n'
+        return string
+    def createPublicVersion(self):
+        self.grid = self.invertGrid(self.grid.grid)
+        self.testDict['grid'] = self.gridTestString(self.grid.grid)
+    # END SOLUTION NO PROMPT
 
 class EpsilonGreedyTest(testClasses.TestCase):
 
@@ -657,15 +753,47 @@ class EpsilonGreedyTest(testClasses.TestCase):
                 return False
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def invertGrid(self, grid):
+        invertedWidth = grid.height
+        invertedHeight = grid.width
+        inverted = gridworld.Grid(invertedWidth, invertedHeight)
+        for invertedX in range(invertedWidth):
+            for invertedY in range(invertedHeight):
+                inverted[invertedX][invertedY] = grid[invertedY][invertedX]
+        return gridworld.Gridworld(inverted)
+    def gridTestString(self, grid):
+        string = ''
+        for ybar in range(grid.height):
+            y = grid.height - ybar - 1
+            for x in range(grid.width):
+                gridChar = grid[x][y]
+                gridString = ''
+                if gridChar == '#':
+                    gridString = '    #'
+                elif gridChar == ' ':
+                    gridString = '    _'
+                elif gridChar == 'S':
+                    gridString = '    S'
+                else:
+                    gridString = '{0:5d}'.format(gridChar)
+                string += gridString
+            if ybar < grid.height - 1:
+                string += '\n'
+        return string
+    def createPublicVersion(self):
+        self.grid = self.invertGrid(self.grid.grid)
+        self.testDict['grid'] = self.gridTestString(self.grid.grid)
+    # END SOLUTION NO PROMPT
 
 ### q8
-class Question8Test(testClasses.TestCase):
+class Question7Test(testClasses.TestCase):
 
     def __init__(self, question, testDict):
-        super(Question8Test, self).__init__(question, testDict)
+        super(Question7Test, self).__init__(question, testDict)
 
     def execute(self, grades, moduleDict, solutionDict):
-        studentSolution = moduleDict['analysis'].question8()
+        studentSolution = moduleDict['analysis'].question7()
         studentSolution = str(studentSolution).strip().lower()
         hashedSolution = sha1(studentSolution).hexdigest()
         if hashedSolution == '46729c96bb1e4081fdc81a8ff74b3e5db8fba415':
@@ -682,6 +810,10 @@ class Question8Test(testClasses.TestCase):
         handle.close()
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        pass
+    # END SOLUTION NO PROMPT
 
 ### q7/q8
 ### =====
@@ -701,7 +833,7 @@ class EvalAgentTest(testClasses.TestCase):
         self.nonTimeoutThresholds = [int(s) for s in testDict.get('nonTimeoutThresholds','').split()]
         self.winsThresholds = [int(s) for s in testDict.get('winsThresholds','').split()]
 
-        self.maxPoints = sum([len(t) for t in [self.scoreThresholds, self.nonTimeoutThresholds, self.winsThresholds]])
+        self.maxPoints = 5*sum([len(t) for t in [self.scoreThresholds, self.nonTimeoutThresholds, self.winsThresholds]])  # MODIFIED
 
 
     def execute(self, grades, moduleDict, solutionDict):
@@ -726,7 +858,7 @@ class EvalAgentTest(testClasses.TestCase):
             if passed:
                 for t in thresholds:
                     if value >= t:
-                        points += 1
+                        points += 5 # MODIFIED
             return (passed, points, value, minimum, thresholds, name)
 
         results = [gradeThreshold(averageScore, self.scoreMinimum, self.scoreThresholds, "average score"),
@@ -757,7 +889,7 @@ class EvalAgentTest(testClasses.TestCase):
                 self.addMessage("    Grading scheme:")
                 self.addMessage("     < %s:  0 points" % (thresholds[0],))
                 for idx, threshold in enumerate(thresholds):
-                    self.addMessage("    >= %s:  %s points" % (threshold, idx+1))
+                    self.addMessage("    >= %s:  %s points" % (threshold, (idx+1)*5))  # MODIFIED
 
         if any([not passed for passed, _, _, _, _, _ in results]):
             totalPoints = 0
@@ -770,6 +902,10 @@ class EvalAgentTest(testClasses.TestCase):
             handle.write('# File intentionally blank.\n')
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        pass
+    # END SOLUTION NO PROMPT
 
 
 
@@ -974,3 +1110,7 @@ class GridPolicyTest(testClasses.TestCase):
             handle.write('# File intentionally blank.\n')
         return True
 
+    # BEGIN SOLUTION NO PROMPT
+    def createPublicVersion(self):
+        pass
+    # END SOLUTION NO PROMPT

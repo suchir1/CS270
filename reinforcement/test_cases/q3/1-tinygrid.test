@@ -1,4 +1,4 @@
-class: "EpsilonGreedyTest"
+class: "QLearningTest"
 
 # GridWorld specification
 #    _ is empty space
@@ -7,21 +7,16 @@ class: "EpsilonGreedyTest"
 #    S is a start state
 #
 grid: """
-    #   10    #
- -100    _ -100
- -100    _ -100
- -100    _ -100
- -100    _ -100
- -100    S -100
-    #    1    #
+  -10
+    S
+   10
 """
-gridName: "bridgeGrid"
-discount: "0.85"
-noise: "0.1"
+discount: "0.5"
+noise: "0.0"
 livingReward: "0.0"
 epsilon: "0.5"
 learningRate: "0.1"
-numExperiences: "500"
+numExperiences: "100"
 valueIterations: "100"
 iterations: "10000"
 
