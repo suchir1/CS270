@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2a35550-c7c5-493a-8e50-5973020ae80a" name="Default" comment="Reinforcement beginning">
-      <change beforePath="$PROJECT_DIR$/.idea/CS270.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CS270.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/testClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/testClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/CONFIG" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/CONFIG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q1/CONFIG" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q1/CONFIG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q2/CONFIG" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q2/CONFIG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/CONFIG" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q3/CONFIG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/1-tinygrid.solution" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q4/1-tinygrid.solution" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/1-tinygrid.test" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q4/1-tinygrid.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/2-tinygrid-noisy.solution" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q4/2-tinygrid-noisy.solution" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/2-tinygrid-noisy.test" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q4/2-tinygrid-noisy.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/3-bridge.solution" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q4/3-bridge.solution" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/3-bridge.test" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q4/3-bridge.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/4-discountgrid.solution" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q4/4-discountgrid.solution" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/4-discountgrid.test" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q4/4-discountgrid.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/CONFIG" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q4/CONFIG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/CONFIG" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q5/CONFIG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q6/CONFIG" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q6/CONFIG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q7/1-tinygrid.solution" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q7/1-tinygrid.solution" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q7/1-tinygrid.test" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q7/1-tinygrid.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q7/2-tinygrid-noisy.solution" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q7/2-tinygrid-noisy.solution" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q7/2-tinygrid-noisy.test" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q7/2-tinygrid-noisy.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q7/3-bridge.solution" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q7/3-bridge.solution" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q7/3-bridge.test" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q7/3-bridge.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q7/4-discountgrid.solution" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q7/4-discountgrid.solution" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q7/4-discountgrid.test" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q7/4-discountgrid.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q7/CONFIG" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q7/CONFIG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/valueIterationAgents.py" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/valueIterationAgents.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,8 +17,17 @@
       <file leaf-file-name="valueIterationAgents.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reinforcement/valueIterationAgents.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+            <state relative-caret-position="324">
+              <caret line="78" column="38" lean-forward="true" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/reinforcement/util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="288" column="7" selection-start-line="288" selection-start-column="7" selection-end-line="288" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -61,11 +44,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="292" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="992" />
     <option name="y" value="24" />
-    <option name="width" value="1400" />
-    <option name="height" value="1028" />
+    <option name="width" value="928" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -84,6 +67,12 @@
               <item name="CS270" type="462c0819:PsiDirectoryNode" />
               <item name="reinforcement" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CS270" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS270" type="462c0819:PsiDirectoryNode" />
+              <item name="reinforcement" type="462c0819:PsiDirectoryNode" />
+              <item name="test_cases" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -92,7 +81,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -120,9 +109,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="992" y="24" width="928" height="1056" extended-state="4" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18867925" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.3767956" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -151,8 +141,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/reinforcement/valueIterationAgents.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+        <state relative-caret-position="1494">
+          <caret line="83" column="32" lean-forward="true" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -160,6 +150,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reinforcement/valueIterationAgents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reinforcement/test_cases/q1/1-tinygrid.test_output">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-592" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reinforcement/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="288" column="7" selection-start-line="288" selection-start-column="7" selection-end-line="288" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reinforcement/valueIterationAgents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="78" column="38" lean-forward="true" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
         </state>
       </provider>
     </entry>

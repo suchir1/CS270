@@ -62,7 +62,23 @@ class ValueIterationAgent(ValueEstimationAgent):
     def runValueIteration(self):
         # Write value iteration code here
         "*** YOUR CODE HERE ***"
-
+        for i in range(self.iterations):
+            oldVals = self.values.copy()
+            allStates = self.mdp.getStates()
+            for state in allStates:
+                if self.mdp.isTerminal(state):
+                    continue
+                possActions = self.mdp.getPossibleActions(state)
+                maxVal = -99999999999
+                for action in possActions:
+                    value = 0
+                    transitionList = self.mdp.getTransitionStatesAndProbs(state, action)
+                    for transition in transitionList:
+                        value += transition[1] * (
+                                    self.mdp.getReward(state, action, transition[0]) + self.discount * oldVals[transition[0]])
+                    if value > maxVal:
+                        maxVal = value
+                self.values[state] = maxVal
 
     def getValue(self, state):
         """
@@ -76,8 +92,11 @@ class ValueIterationAgent(ValueEstimationAgent):
           Compute the Q-value of action in state from the
           value function stored in self.values.
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        qVal = 0
+        transitionList = self.mdp.getTransitionStatesAndProbs(state, action)
+        for transition in transitionList:
+            qVal += transition[1]*(self.mdp.getReward(state, action, transition[0])+self.discount*self.values[transition[0]])
+        return qVal
 
     def computeActionFromValues(self, state):
         """
@@ -88,8 +107,20 @@ class ValueIterationAgent(ValueEstimationAgent):
           there are no legal actions, which is the case at the
           terminal state, you should return None.
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        possActions = self.mdp.getPossibleActions(state)
+        maxVal = -99999999999999
+        bestAction = None
+        if self.mdp.isTerminal(state):
+            return None
+        for action in possActions:
+            value = 0
+            transitionList = self.mdp.getTransitionStatesAndProbs(state, action)
+            for transition in transitionList:
+                value += self.values[transition[0]]*transition[1]
+            if value > maxVal:
+                maxVal = value
+                bestAction = action
+        return bestAction
 
     def getPolicy(self, state):
         return self.computeActionFromValues(state)
