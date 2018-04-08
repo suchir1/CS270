@@ -3,9 +3,58 @@
   <component name="ChangeListManager">
     <list default="true" id="d2a35550-c7c5-493a-8e50-5973020ae80a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reinforcement/qlearningAgents.py" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/qlearningAgents.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement/valueIterationAgents.py" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/valueIterationAgents.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/1-tinygrid.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/1-tinygrid.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/2-tinygrid-noisy.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/2-tinygrid-noisy.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/3-bridge.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/3-bridge.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/4-discountgrid.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/4-discountgrid.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/5-coord-extractor.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/5-coord-extractor.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q10/CONFIG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q2/1-bridge-grid.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q2/1-bridge-grid.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/1-question-3.1.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/1-question-3.1.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/2-question-3.2.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/2-question-3.2.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/3-question-3.3.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/3-question-3.3.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/4-question-3.4.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/4-question-3.4.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/5-question-3.5.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q3/5-question-3.5.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/1-tinygrid.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/1-tinygrid.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/1-tinygrid.test_output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/2-tinygrid-noisy.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/2-tinygrid-noisy.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/2-tinygrid-noisy.test_output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/3-bridge.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/3-bridge.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/3-bridge.test_output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/4-discountgrid.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/4-discountgrid.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/4-discountgrid.test_output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q5/grade-agent.test" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/test_cases/q5/grade-agent.test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q6/1-tinygrid.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q6/1-tinygrid.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q6/2-tinygrid-noisy.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q6/2-tinygrid-noisy.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q6/3-bridge.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q6/3-bridge.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q6/4-discountgrid.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q6/4-discountgrid.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q8/CONFIG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q8/grade-agent.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q8/grade-agent.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q9/CONFIG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q9/grade-agent.solution" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/test_cases/q9/grade-agent.test" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +77,20 @@
       <file leaf-file-name="qlearningAgents.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="99" column="21" lean-forward="true" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+            <state relative-caret-position="378">
+              <caret line="100" column="49" lean-forward="true" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reinforcementTestClasses.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="777" column="21" lean-forward="true" selection-start-line="777" selection-start-column="21" selection-end-line="777" selection-end-column="21" />
+              <folding>
+                <element signature="e#685#703#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,6 +128,7 @@
       <list>
         <option value="$PROJECT_DIR$/reinforcement/analysis.py" />
         <option value="$PROJECT_DIR$/reinforcement/valueIterationAgents.py" />
+        <option value="$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py" />
         <option value="$PROJECT_DIR$/reinforcement/qlearningAgents.py" />
       </list>
     </option>
@@ -134,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523131257404</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Progress into Q3">
+      <created>1523151179589</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523151179589</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -166,7 +235,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Reinforcement beginning" />
     <MESSAGE value="First Question passed I guess?" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Question passed I guess?" />
+    <MESSAGE value="Progress into Q3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Progress into Q3" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/reinforcement/valueIterationAgents.py">
@@ -228,10 +298,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="777" column="21" lean-forward="true" selection-start-line="777" selection-start-column="21" selection-end-line="777" selection-end-column="21" />
+          <folding>
+            <element signature="e#685#703#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="99" column="21" lean-forward="true" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+        <state relative-caret-position="378">
+          <caret line="100" column="49" lean-forward="true" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
         </state>
       </provider>
     </entry>

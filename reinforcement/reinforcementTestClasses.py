@@ -4,7 +4,7 @@
 # educational purposes provided that (1) you do not distribute or publish
 # solutions, (2) you retain this notice, and (3) you provide clear
 # attribution to UC Berkeley, including a link to http://ai.berkeley.edu.
-# 
+#
 # Attribution Information: The Pacman AI projects were developed at UC Berkeley.
 # The core projects and autograders were primarily created by John DeNero
 # (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
@@ -787,13 +787,13 @@ class EpsilonGreedyTest(testClasses.TestCase):
     # END SOLUTION NO PROMPT
 
 ### q8
-class Question7Test(testClasses.TestCase):
+class Question5Test(testClasses.TestCase):
 
     def __init__(self, question, testDict):
-        super(Question7Test, self).__init__(question, testDict)
+        super(Question5Test, self).__init__(question, testDict)
 
     def execute(self, grades, moduleDict, solutionDict):
-        studentSolution = moduleDict['analysis'].question7()
+        studentSolution = moduleDict['analysis'].question5()
         studentSolution = str(studentSolution).strip().lower()
         hashedSolution = sha1(studentSolution).hexdigest()
         if hashedSolution == '46729c96bb1e4081fdc81a8ff74b3e5db8fba415':

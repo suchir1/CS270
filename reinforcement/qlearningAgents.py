@@ -102,6 +102,12 @@ class QLearningAgent(ReinforcementAgent):
         if(len(possActions)==0):
             return None
         if util.flipCoin(self.epsilon):
+            zeroBois = list()
+            for action in possActions:
+                if self.getQValue(state,action) == 0:
+                    zeroBois.append(action)
+            if len(zeroBois)!=0:
+                return random.choice(zeroBois)
             return random.choice(possActions)
         return self.computeActionFromQValues(state)
 
@@ -114,10 +120,19 @@ class QLearningAgent(ReinforcementAgent):
           NOTE: You should never call this function,
           it will be called on your behalf
         """
-
-
-
-        util.raiseNotDefined()
+        possActions = self.getLegalActions(state)
+        if (len(possActions) == 0):
+            self.qvalues[(state,action)] = reward
+        else:
+            possActions = self.getLegalActions(nextState)
+            maxQ = -9999999999999999
+            for newAction in possActions:
+                tempQ = self.getQValue(nextState, newAction)
+                if tempQ > maxQ:
+                    maxQ = tempQ
+            if (len(possActions) == 0):
+                maxQ = 0
+            self.qvalues[(state, action)] = self.qvalues[(state,action)] + self.alpha*(reward + self.discount*maxQ - self.qvalues[(state,action)])
 
     def getPolicy(self, state):
         return self.computeActionFromQValues(state)
