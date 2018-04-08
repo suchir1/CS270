@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d2a35550-c7c5-493a-8e50-5973020ae80a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement/qlearningAgents.py" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement/qlearningAgents.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,20 +14,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="qlearningAgents.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="qlearningAgents.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="196" column="32" lean-forward="true" selection-start-line="196" selection-start-column="32" selection-end-line="196" selection-end-column="32" />
+            <state relative-caret-position="589">
+              <caret line="214" column="35" lean-forward="true" selection-start-line="214" selection-start-column="35" selection-end-line="214" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="featureExtractors.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="featureExtractors.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reinforcement/featureExtractors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="45" column="50" lean-forward="true" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
+            <state relative-caret-position="792">
+              <caret line="45" column="50" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -46,8 +47,8 @@
       <list>
         <option value="$PROJECT_DIR$/reinforcement/valueIterationAgents.py" />
         <option value="$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py" />
-        <option value="$PROJECT_DIR$/reinforcement/qlearningAgents.py" />
         <option value="$PROJECT_DIR$/reinforcement/analysis.py" />
+        <option value="$PROJECT_DIR$/reinforcement/qlearningAgents.py" />
       </list>
     </option>
   </component>
@@ -135,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523155307999</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Done up to Q6!">
+      <created>1523156846744</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1523156846744</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -145,7 +153,6 @@
       <window_info content_ui="combo" id="Project" order="0" weight="0.3767956" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32948583" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -159,6 +166,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32948583" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -173,6 +181,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="Done up to Q6!" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3690">
+          <caret line="205" column="11" lean-forward="true" selection-start-line="205" selection-start-column="11" selection-end-line="205" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reinforcement/featureExtractors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="45" column="50" lean-forward="true" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/reinforcement/valueIterationAgents.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1494">
@@ -194,11 +216,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reinforcement/test_cases/q1/1-tinygrid.test_output">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-592" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/reinforcement/test_cases/q1/1-tinygrid.test_output" />
     <entry file="file://$PROJECT_DIR$/reinforcement/mdp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-185" />
@@ -222,9 +240,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="777" column="21" lean-forward="true" selection-start-line="777" selection-start-column="21" selection-end-line="777" selection-end-column="21" />
-          <folding>
-            <element signature="e#685#703#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -242,17 +257,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
+    <entry file="file://$PROJECT_DIR$/reinforcement/featureExtractors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="196" column="32" lean-forward="true" selection-start-line="196" selection-start-column="32" selection-end-line="196" selection-end-column="32" />
+        <state relative-caret-position="792">
+          <caret line="45" column="50" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reinforcement/featureExtractors.py">
+    <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="45" column="50" lean-forward="true" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
+        <state relative-caret-position="589">
+          <caret line="214" column="35" lean-forward="true" selection-start-line="214" selection-start-column="35" selection-end-line="214" selection-end-column="35" />
         </state>
       </provider>
     </entry>
