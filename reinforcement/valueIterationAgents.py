@@ -63,7 +63,7 @@ class ValueIterationAgent(ValueEstimationAgent):
         # Write value iteration code here
         "*** YOUR CODE HERE ***"
         for i in range(self.iterations):
-            oldVals = self.values.copy()
+            currentVals = self.values.copy()
             allStates = self.mdp.getStates()
             for state in allStates:
                 if self.mdp.isTerminal(state):
@@ -75,7 +75,7 @@ class ValueIterationAgent(ValueEstimationAgent):
                     transitionList = self.mdp.getTransitionStatesAndProbs(state, action)
                     for transition in transitionList:
                         value += transition[1] * (
-                                    self.mdp.getReward(state, action, transition[0]) + self.discount * oldVals[transition[0]])
+                                    self.mdp.getReward(state, action, transition[0]) + self.discount * currentVals[transition[0]])
                     if value > maxVal:
                         maxVal = value
                 self.values[state] = maxVal
