@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d2a35550-c7c5-493a-8e50-5973020ae80a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tracking/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/tracking/inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tracking/testClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/tracking/testClasses.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bustersAgents.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tracking/bustersAgents.py">
+      <file leaf-file-name="busters.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tracking/busters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state relative-caret-position="414">
+              <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inference.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tracking/inference.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="304" lean-forward="true" selection-start-line="304" selection-end-line="304" />
+              <folding>
+                <element signature="e#656#672#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -27,6 +41,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>flipcoin</find>
+      <find>getobservation</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -39,6 +54,8 @@
         <option value="$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py" />
         <option value="$PROJECT_DIR$/reinforcement/analysis.py" />
         <option value="$PROJECT_DIR$/reinforcement/qlearningAgents.py" />
+        <option value="$PROJECT_DIR$/tracking/bustersAgents.py" />
+        <option value="$PROJECT_DIR$/tracking/inference.py" />
       </list>
     </option>
   </component>
@@ -140,7 +157,21 @@
       <option name="project" value="LOCAL" />
       <updated>1523160984219</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Start of hw5">
+      <created>1524025145480</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1524025145480</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Start of hw5">
+      <created>1524025163138</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1524025163138</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -176,7 +207,8 @@
     <MESSAGE value="Updated tests and on to Q5" />
     <MESSAGE value="Done up to Q6!" />
     <MESSAGE value="55/55" />
-    <option name="LAST_COMMIT_MESSAGE" value="55/55" />
+    <MESSAGE value="Start of hw5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start of hw5" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
@@ -285,8 +317,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tracking/bustersAgents.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="-306">
+          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tracking/busters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tracking/autograder.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tracking/inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="304" lean-forward="true" selection-start-line="304" selection-end-line="304" />
+          <folding>
+            <element signature="e#656#672#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
