@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2a35550-c7c5-493a-8e50-5973020ae80a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tracking/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/tracking/inference.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +25,8 @@
       <file leaf-file-name="inference.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tracking/inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="396" column="42" selection-start-line="396" selection-start-column="42" selection-end-line="396" selection-end-column="42" />
+            <state relative-caret-position="372">
+              <caret line="359" column="34" lean-forward="true" selection-start-line="359" selection-start-column="34" selection-end-line="359" selection-end-column="34" />
               <folding>
                 <element signature="e#656#672#0" expanded="true" />
               </folding>
@@ -204,14 +203,21 @@
       <option name="project" value="LOCAL" />
       <updated>1524101171318</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Maybe (hopefully) the autograder is wrong?">
+      <created>1524105490627</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1524105490627</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="992" y="24" width="928" height="1056" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3760776" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3760776" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -245,7 +251,8 @@
     <MESSAGE value="Q3 Done!!" />
     <MESSAGE value="Q4a Done!" />
     <MESSAGE value="Partial through debugging Q4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Partial through debugging Q4" />
+    <MESSAGE value="Maybe (hopefully) the autograder is wrong?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Maybe (hopefully) the autograder is wrong?" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tracking/busters.py">
@@ -392,8 +399,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="396" column="42" selection-start-line="396" selection-start-column="42" selection-end-line="396" selection-end-column="42" />
+        <state relative-caret-position="372">
+          <caret line="359" column="34" lean-forward="true" selection-start-line="359" selection-start-column="34" selection-end-line="359" selection-end-column="34" />
           <folding>
             <element signature="e#656#672#0" expanded="true" />
           </folding>
