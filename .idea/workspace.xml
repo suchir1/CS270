@@ -26,8 +26,8 @@
       <file leaf-file-name="inference.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tracking/inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="456" lean-forward="true" selection-start-line="456" selection-end-line="456" />
+            <state relative-caret-position="237">
+              <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
               <folding>
                 <element signature="e#656#672#0" expanded="true" />
               </folding>
@@ -185,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524089846298</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Q4a Done!">
+      <created>1524096815542</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1524096815542</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -224,7 +231,8 @@
     <MESSAGE value="Start of hw5" />
     <MESSAGE value="Q1 Done!" />
     <MESSAGE value="Q3 Done!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Q3 Done!!" />
+    <MESSAGE value="Q4a Done!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Q4a Done!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
@@ -350,8 +358,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="456" lean-forward="true" selection-start-line="456" selection-end-line="456" />
+        <state relative-caret-position="237">
+          <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
           <folding>
             <element signature="e#656#672#0" expanded="true" />
           </folding>

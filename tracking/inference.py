@@ -74,7 +74,7 @@ class DiscreteDistribution(dict):
         >>> empty
         {}
         """
-        total = 0
+        total = 0.0
         for key in self.keys():
             total+=self[key]
         if total!= 0:
@@ -357,40 +357,50 @@ class ParticleFilter(InferenceModule):
         be reinitialized by calling initializeUniformly. The total method of
         the DiscreteDistribution may be useful.
         """
-        self.beliefs = DiscreteDistribution()
         pacmanPos = gameState.getPacmanPosition()
         jailPos = self.getJailPosition()
         if (observation == None):
             for i in range(self.numParticles):
                 self.particles.append(jailPos)
         else:
-            for ghostPos in self.particles:
-                self.beliefs[ghostPos] = self.beliefs[ghostPos]+1
+            self.beliefs = self.getBeliefDistribution()
+            total=0
+            for key in self.beliefs:
+                total += self.beliefs[key]
+            if total == 0:
+                self.initializeUniformly(gameState)
+                return
             for ghostPos in self.beliefs:
                 self.beliefs[ghostPos] = busters.getObservationProbability(observation,
                                                                            manhattanDistance(pacmanPos, ghostPos)) * \
                                          self.beliefs[ghostPos]
-            self.beliefs[jailPos] = 0 #Maybe don't need for this one?
-        self.beliefs.normalize()
-        total = 0
-        newParticles = []
-        for key in self.beliefs:
-            total+=self.beliefs[key]
-        if total==0:
-            self.initializeUniformly(gameState)
-        else:
-            for i in range(self.numParticles):
-                newParticles.append(self.sample_randomly(self.beliefs))
-        self.particles = newParticles
+            self.beliefs[jailPos] = 0
+            print(self.beliefs)
+            self.beliefs.normalize()
+            total = 0
+            newParticles = []
+            for key in self.beliefs:
+                total+=self.beliefs[key]
+
+            if total==0:
+                self.initializeUniformly(gameState)
+            else:
+
+                for i in range(self.numParticles):
+                    newParticles.append(self.sample_randomly(self.beliefs))
+            self.particles = newParticles
+
 
 
     def sample_randomly(self, beliefs):
         randomNum = random.random()
         total = 0
+        best = None
         for key in beliefs:
             total += beliefs[key]
             if randomNum<= total:
-                return key
+                best = key
+        return best
 
 
 
@@ -419,12 +429,11 @@ class ParticleFilter(InferenceModule):
         locations conditioned on all evidence and time passage. This method
         essentially converts a list of particles into a belief distribution.
         """
-        #Might have this messed up since I basically implemented this in the observe update method tooo
         beliefs = DiscreteDistribution()
-        normBeliefs = DiscreteDistribution()
         for ghostPos in self.particles:
             beliefs[ghostPos] += 1
         beliefs.normalize()
+
         return beliefs
 
 
