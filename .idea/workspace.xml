@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2a35550-c7c5-493a-8e50-5973020ae80a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tracking/bustersAgents.py" beforeDir="false" afterPath="$PROJECT_DIR$/tracking/bustersAgents.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tracking/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/tracking/inference.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,20 +23,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bustersAgents.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tracking/bustersAgents.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="156" column="25" lean-forward="true" selection-start-line="156" selection-start-column="25" selection-end-line="156" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inference.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="inference.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tracking/inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="309" column="34" lean-forward="true" selection-start-line="309" selection-start-column="34" selection-end-line="309" selection-end-column="34" />
+            <state relative-caret-position="486">
+              <caret line="456" lean-forward="true" selection-start-line="456" selection-end-line="456" />
               <folding>
                 <element signature="e#656#672#0" expanded="true" />
               </folding>
@@ -64,8 +54,8 @@
         <option value="$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py" />
         <option value="$PROJECT_DIR$/reinforcement/analysis.py" />
         <option value="$PROJECT_DIR$/reinforcement/qlearningAgents.py" />
-        <option value="$PROJECT_DIR$/tracking/inference.py" />
         <option value="$PROJECT_DIR$/tracking/bustersAgents.py" />
+        <option value="$PROJECT_DIR$/tracking/inference.py" />
       </list>
     </option>
   </component>
@@ -188,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524081760744</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Q3 Done!!">
+      <created>1524089846298</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1524089846298</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -226,7 +223,8 @@
     <MESSAGE value="55/55" />
     <MESSAGE value="Start of hw5" />
     <MESSAGE value="Q1 Done!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Q1 Done!" />
+    <MESSAGE value="Q3 Done!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Q3 Done!!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
@@ -336,13 +334,10 @@
     <entry file="file://$PROJECT_DIR$/tracking/autograder.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tracking/inference.py">
+    <entry file="file://$PROJECT_DIR$/tracking/bustersAgents.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="309" column="34" lean-forward="true" selection-start-line="309" selection-start-column="34" selection-end-line="309" selection-end-column="34" />
-          <folding>
-            <element signature="e#656#672#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="744">
+          <caret line="156" column="25" lean-forward="true" selection-start-line="156" selection-start-column="25" selection-end-line="156" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -353,10 +348,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tracking/bustersAgents.py">
+    <entry file="file://$PROJECT_DIR$/tracking/inference.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="156" column="25" lean-forward="true" selection-start-line="156" selection-start-column="25" selection-end-line="156" selection-end-column="25" />
+        <state relative-caret-position="486">
+          <caret line="456" lean-forward="true" selection-start-line="456" selection-end-line="456" />
+          <folding>
+            <element signature="e#656#672#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
