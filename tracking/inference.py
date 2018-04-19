@@ -357,50 +357,54 @@ class ParticleFilter(InferenceModule):
         be reinitialized by calling initializeUniformly. The total method of
         the DiscreteDistribution may be useful.
         """
+        beliefs = DiscreteDistribution()
         pacmanPos = gameState.getPacmanPosition()
         jailPos = self.getJailPosition()
         if (observation == None):
             for i in range(self.numParticles):
                 self.particles.append(jailPos)
         else:
-            self.beliefs = self.getBeliefDistribution()
+            for i in range(self.numParticles):
+                beliefs[self.particles[i]]+=1
             total=0
-            for key in self.beliefs:
-                total += self.beliefs[key]
+            for key in beliefs:
+                total += beliefs[key]
             if total == 0:
                 self.initializeUniformly(gameState)
                 return
-            for ghostPos in self.beliefs:
-                self.beliefs[ghostPos] = busters.getObservationProbability(observation,
+            for ghostPos in beliefs:
+                beliefs[ghostPos] = busters.getObservationProbability(observation,
                                                                            manhattanDistance(pacmanPos, ghostPos)) * \
-                                         self.beliefs[ghostPos]
-            self.beliefs[jailPos] = 0
-            print(self.beliefs)
-            self.beliefs.normalize()
+                                         beliefs[ghostPos]
+            beliefs[jailPos] = 0
+            beliefs.normalize()
+
             total = 0
             newParticles = []
-            for key in self.beliefs:
-                total+=self.beliefs[key]
+            for key in beliefs:
+                total+=beliefs[key]
 
             if total==0:
                 self.initializeUniformly(gameState)
             else:
-
-                for i in range(self.numParticles):
-                    newParticles.append(self.sample_randomly(self.beliefs))
-            self.particles = newParticles
+                print(beliefs)
+                self.particles = self.sample_randomly(beliefs)
 
 
 
     def sample_randomly(self, beliefs):
-        randomNum = random.random()
-        total = 0
-        best = None
-        for key in beliefs:
-            total += beliefs[key]
-            if randomNum<= total:
-                best = key
-        return best
+        x = []
+        for i in range(self.numParticles):
+            randomNum = random.random()
+            total = 0
+            best = None
+            for key in beliefs:
+                total += beliefs[key]
+                if randomNum<= total:
+                    x.append(key)
+                    continue
+        return x
+
 
 
 
