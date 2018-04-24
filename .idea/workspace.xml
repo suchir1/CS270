@@ -17,8 +17,8 @@
       <file leaf-file-name="inference.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tracking/inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="518" column="17" lean-forward="true" selection-start-line="518" selection-start-column="17" selection-end-line="518" selection-end-column="17" />
+            <state relative-caret-position="414">
+              <caret line="549" column="34" lean-forward="true" selection-start-line="549" selection-start-column="34" selection-end-line="549" selection-end-column="34" />
               <folding>
                 <element signature="e#656#672#0" expanded="true" />
               </folding>
@@ -44,10 +44,13 @@
       <find>self.beliefs</find>
       <find>busters</find>
       <find>getobservation</find>
-      <find>print</find>
       <find>getposition</find>
+      <find>poslist[i]</find>
+      <find>beliefs[i]</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
+      <replace>posList</replace>
       <replace>beliefs</replace>
     </replaceStrings>
   </component>
@@ -234,7 +237,21 @@
       <option name="project" value="LOCAL" />
       <updated>1524530050035</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Q5a done">
+      <created>1524539822813</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1524539822813</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Q6 beliefsList version (doesn't work)">
+      <created>1524544041994</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1524544041994</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -278,7 +295,9 @@
     <MESSAGE value="Maybe (hopefully) the autograder is wrong?" />
     <MESSAGE value="Q1 working!!" />
     <MESSAGE value="Backup just in case" />
-    <option name="LAST_COMMIT_MESSAGE" value="Backup just in case" />
+    <MESSAGE value="Q5a done" />
+    <MESSAGE value="Q6 beliefsList version (doesn't work)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Q6 beliefsList version (doesn't work)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
@@ -476,8 +495,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="518" column="17" lean-forward="true" selection-start-line="518" selection-start-column="17" selection-end-line="518" selection-end-column="17" />
+        <state relative-caret-position="414">
+          <caret line="549" column="34" lean-forward="true" selection-start-line="549" selection-start-column="34" selection-end-line="549" selection-end-column="34" />
           <folding>
             <element signature="e#656#672#0" expanded="true" />
           </folding>

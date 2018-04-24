@@ -490,37 +490,68 @@ class JointParticleFilter(ParticleFilter):
         the DiscreteDistribution may be useful.
         """
         "*** YOUR CODE HERE ***"
+        # pacmanPos = gameState.getPacmanPosition()
+        # beliefsList = list()
+        # for i in range(self.numGhosts):
+        #     beliefsList.append(DiscreteDistribution())
+        # for posList in self.particles:
+        #     for i in range(self.numGhosts):
+        #         beliefsList[i][posList[i]] += 1
+        # for i in range(self.numGhosts):
+        #     beliefsList[i].normalize()
+        # for posList in self.particles:
+        #     for i in range(self.numGhosts):
+        #         jailPos = self.getJailPosition(i)
+        #         beliefsList[i][posList[i]] = self.getObservationProb(observation[i], pacmanPos, posList[i], jailPos) * \
+        #                                      beliefsList[i][posList[i]]
+        # for i in range(self.numGhosts):
+        #     beliefsList[i][self.getJailPosition(i)] = 0
+        #     beliefsList[i].normalize()
+        # newParticles = list()
+        # for i in range(self.numGhosts):
+        #     if beliefsList[i].total() == 0:
+        #         self.initializeUniformly(gameState)
+        #         return
+        # for j in range(len(self.particles)):
+        #     newParticles.append(list())
+        #     for i in range(self.numGhosts):
+        #         randomPos = self.sample_once(beliefsList[i])
+        #         newParticles[j].append(randomPos)
+        # tupleParticles = list()
+        # for j in range(len(self.particles)):
+        #     tupleParticles.append(tuple(newParticles[j]))
+        # self.particles = tupleParticles
+
+    #Backup of the one belief dictionary version of observeUpdate
         pacmanPos = gameState.getPacmanPosition()
-        beliefsList = list()
-        for i in range(self.numGhosts):
-            beliefsList.append(DiscreteDistribution())
+        beliefs = DiscreteDistribution()
         for posList in self.particles:
             for i in range(self.numGhosts):
-                beliefsList[i][posList[i]] += 1
-        for i in range(self.numGhosts):
-            beliefsList[i].normalize()
-        print(beliefsList)
+                beliefs[posList] += 1
+        beliefs.normalize()
+        oldBeliefs = beliefs.copy()
         for posList in self.particles:
             for i in range(self.numGhosts):
                 jailPos = self.getJailPosition(i)
-                beliefsList[i][posList[i]] = self.getObservationProb(observation[i], pacmanPos, posList[i], jailPos) * beliefsList[i][posList[i]]
-        for i in range(self.numGhosts):
-            beliefsList[i][self.getJailPosition(i)] = 0
-            beliefsList[i].normalize()
+                beliefs[posList] = self.getObservationProb(observation[i], pacmanPos, posList[i], jailPos) * oldBeliefs[
+                    posList]
+
+        #Jail check, doesn't matter though
+        # for posList in self.particles:
+        #     for j in range(self.numGhosts):
+        #         if self.getJailPosition(j) == posList[j]:
+        #             beliefs[posList] = 0
+
+        beliefs.normalize()
         newParticles = list()
-        for i in range(self.numGhosts):
-            if beliefsList[i].total()==0:
-                self.initializeUniformly(gameState)
-                return
-        for j in range(len(self.particles)):
-            newParticles.append(list())
-            for i in range(self.numGhosts):
-                randomPos = self.sample_once(beliefsList[i])
-                newParticles[j].append(randomPos)
-        tupleParticles = list()
-        for j in range(len(self.particles)):
-            tupleParticles.append(tuple(newParticles[j]))
-        self.particles = tupleParticles
+        if beliefs.total() == 0:
+            self.initializeUniformly(gameState)
+            return
+        # for j in range(len(self.particles)):
+        #     randomPos = self.sample_once(beliefs)
+        #     newParticles.append(randomPos)
+
+        self.particles = self.sample_randomly(beliefs)
 
 
 
@@ -545,13 +576,13 @@ class JointParticleFilter(ParticleFilter):
     def sample_once(self, beliefs):
         total = 0
         for key in beliefs:
-            total+=beliefs[key]
+            total += beliefs[key]
         soFar = 0
         randomNum = random.uniform(0, total)
         for key in beliefs:
-            if soFar + beliefs[key]>=randomNum:
+            if soFar + beliefs[key] >= randomNum:
                 return key
-            soFar+=beliefs[key]
+            soFar += beliefs[key]
 
 
 # One JointInference module is shared globally across instances of MarginalInference
