@@ -535,17 +535,31 @@ class JointParticleFilter(ParticleFilter):
                 jailPos = self.getJailPosition(i)
                 beliefs[posList] = self.getObservationProb(observation[i], pacmanPos, posList[i], jailPos) * oldBeliefs[
                     posList]
+            for i in range(self.numGhosts):
+                if observation[i] is not None:
+                    if posList[i] == self.getJailPosition(i):
+                        beliefs[posList] = 0
 
-        #Jail check, doesn't matter though
-        # for posList in self.particles:
-        #     for j in range(self.numGhosts):
-        #         if self.getJailPosition(j) == posList[j]:
-        #             beliefs[posList] = 0
+        # Jail check, doesn't matter though
+        for j in range(self.numGhosts):
+            if observation[j] is None:
+                for posList in self.particles:
+                    if self.getJailPosition(j) != posList[j]:
+                        beliefs[posList] = 0
 
         beliefs.normalize()
-        newParticles = list()
         if beliefs.total() == 0:
             self.initializeUniformly(gameState)
+            #Jaily bois
+            # for i in range(self.numGhosts):
+            #     if observation[i] == None:
+            #         for posIndex in range(len(self.particles)):
+            #             best = self.particles[posIndex]
+            #             best = list(best)
+            #             best[posIndex] = self.getJailPosition(posIndex)
+            #             best = tuple(best)
+            #             print(best)
+            #             self.particles[posIndex] = best
             return
         # for j in range(len(self.particles)):
         #     randomPos = self.sample_once(beliefs)

@@ -17,8 +17,8 @@
       <file leaf-file-name="inference.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tracking/inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="549" column="34" lean-forward="true" selection-start-line="549" selection-start-column="34" selection-end-line="549" selection-end-column="34" />
+            <state relative-caret-position="576">
+              <caret line="552" column="23" lean-forward="true" selection-start-line="552" selection-start-column="23" selection-end-line="552" selection-end-column="23" />
               <folding>
                 <element signature="e#656#672#0" expanded="true" />
               </folding>
@@ -251,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524544041994</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Q5b working!">
+      <created>1524548678714</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1524548678714</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -297,7 +304,8 @@
     <MESSAGE value="Backup just in case" />
     <MESSAGE value="Q5a done" />
     <MESSAGE value="Q6 beliefsList version (doesn't work)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Q6 beliefsList version (doesn't work)" />
+    <MESSAGE value="Q5b working!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Q5b working!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
@@ -495,8 +503,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="549" column="34" lean-forward="true" selection-start-line="549" selection-start-column="34" selection-end-line="549" selection-end-column="34" />
+        <state relative-caret-position="576">
+          <caret line="552" column="23" lean-forward="true" selection-start-line="552" selection-start-column="23" selection-end-line="552" selection-end-column="23" />
           <folding>
             <element signature="e#656#672#0" expanded="true" />
           </folding>
