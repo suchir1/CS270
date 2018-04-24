@@ -365,8 +365,6 @@ class ParticleFilter(InferenceModule):
         beliefs = self.getBeliefDistribution()
         pacmanPos = gameState.getPacmanPosition()
         jailPos = self.getJailPosition()
-        #may need the zero check up here
-
         #if observation is not None:
         for ghostPos in beliefs:
             beliefs[ghostPos] = self.getObservationProb(observation,pacmanPos,ghostPos,jailPos) * beliefs[ghostPos]
@@ -378,7 +376,6 @@ class ParticleFilter(InferenceModule):
         if total==0:
             self.initializeUniformly(gameState)
         else:
-            #print(beliefs)
             self.particles = self.sample_randomly(beliefs)
         #else:
         #    self.particles = [jailPos]*self.numParticles
@@ -493,6 +490,39 @@ class JointParticleFilter(ParticleFilter):
         the DiscreteDistribution may be useful.
         """
         "*** YOUR CODE HERE ***"
+        pacmanPos = gameState.getPacmanPosition()
+        beliefsList = list()
+        for i in range(self.numGhosts):
+            beliefsList.append(DiscreteDistribution())
+        for posList in self.particles:
+            for i in range(self.numGhosts):
+                beliefsList[i][posList[i]] += 1
+        for i in range(self.numGhosts):
+            beliefsList[i].normalize()
+        print(beliefsList)
+        for posList in self.particles:
+            for i in range(self.numGhosts):
+                jailPos = self.getJailPosition(i)
+                beliefsList[i][posList[i]] = self.getObservationProb(observation[i], pacmanPos, posList[i], jailPos) * beliefsList[i][posList[i]]
+        for i in range(self.numGhosts):
+            beliefsList[i][self.getJailPosition(i)] = 0
+            beliefsList[i].normalize()
+        newParticles = list()
+        for i in range(self.numGhosts):
+            if beliefsList[i].total()==0:
+                self.initializeUniformly(gameState)
+                return
+        for j in range(len(self.particles)):
+            newParticles.append(list())
+            for i in range(self.numGhosts):
+                randomPos = self.sample_once(beliefsList[i])
+                newParticles[j].append(randomPos)
+        tupleParticles = list()
+        for j in range(len(self.particles)):
+            tupleParticles.append(tuple(newParticles[j]))
+        self.particles = tupleParticles
+
+
 
     def elapseTime(self, gameState):
         """
