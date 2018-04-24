@@ -365,33 +365,27 @@ class ParticleFilter(InferenceModule):
         beliefs = DiscreteDistribution()
         pacmanPos = gameState.getPacmanPosition()
         jailPos = self.getJailPosition()
-        if (observation == None):
-            for i in range(self.numParticles):
-                self.particles.append(jailPos)
+        for i in range(self.numParticles):
+            beliefs[self.particles[i]]+=1
+        total=0
+        for key in beliefs:
+            total += beliefs[key]
+        if total == 0:
+            self.initializeUniformly(gameState)
+            return
+        for ghostPos in beliefs:
+            beliefs[ghostPos] = self.getObservationProb(observation,pacmanPos,ghostPos,jailPos) * \
+                                     beliefs[ghostPos]
+        beliefs[jailPos] = 0 #maybe need this?
+        beliefs.normalize()
+        total = 0
+        for key in beliefs:
+            total+=beliefs[key]
+        if total==0:
+            self.initializeUniformly(gameState)
         else:
-            for i in range(self.numParticles):
-                beliefs[self.particles[i]]+=1
-            total=0
-            for key in beliefs:
-                total += beliefs[key]
-            if total == 0:
-                self.initializeUniformly(gameState)
-                return
-            for ghostPos in beliefs:
-                beliefs[ghostPos] = self.getObservationProb(observation,pacmanPos,ghostPos,jailPos) * \
-                                         beliefs[ghostPos]
-            beliefs[jailPos] = 0
-            beliefs.normalize()
-
-            total = 0
-            newParticles = []
-            for key in beliefs:
-                total+=beliefs[key]
-
-            if total==0:
-                self.initializeUniformly(gameState)
-            else:
-                self.particles = self.sample_randomly(beliefs)
+            print(beliefs)
+            self.particles = self.sample_randomly(beliefs)
 
 
 
@@ -420,14 +414,12 @@ class ParticleFilter(InferenceModule):
         """
         "*** YOUR CODE HERE ***"
         newSelfBeliefs = DiscreteDistribution()
-        newParticles = []
         oldSelfBeliefs = self.getBeliefDistribution()
         for ghostPos in self.particles:
             newPosDist = self.getPositionDistribution(gameState, ghostPos)
             for newGhostPos in newPosDist:
                 newSelfBeliefs[newGhostPos] += newPosDist[newGhostPos] * oldSelfBeliefs[ghostPos]
-        for i in range(self.numParticles):
-            newParticles.append(self.sample_randomly(newSelfBeliefs))
+        self.particles = self.sample_randomly(newSelfBeliefs)
 
 
     def getBeliefDistribution(self):
