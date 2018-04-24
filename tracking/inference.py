@@ -536,6 +536,7 @@ class JointParticleFilter(ParticleFilter):
         # self.particles = tupleParticles
 
     #Backup of the one belief dictionary version of observeUpdate
+        newParticle = list()
         pacmanPos = gameState.getPacmanPosition()
         beliefs = DiscreteDistribution()
         for posList in self.particles:
@@ -590,7 +591,7 @@ class JointParticleFilter(ParticleFilter):
         newParticles = []
         for oldParticle in self.particles:
             newParticle = list(oldParticle)  # A list of ghost positions
-
+            bestParticle = list(oldParticle)
             # now loop through and update each entry in newParticle...
             "*** YOUR CODE HERE ***"
             for i in range(len(newParticle)):
