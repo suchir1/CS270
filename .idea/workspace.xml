@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2a35550-c7c5-493a-8e50-5973020ae80a" name="Default" comment="">
+    <list default="true" id="d2a35550-c7c5-493a-8e50-5973020ae80a" name="Default" comment="Backup before changing beliefs in q6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tracking/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/tracking/inference.py" afterDir="false" />
     </list>
@@ -17,8 +17,8 @@
       <file leaf-file-name="inference.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tracking/inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="560" column="46" selection-start-line="560" selection-start-column="46" selection-end-line="560" selection-end-column="46" />
+            <state relative-caret-position="450">
+              <caret line="562" column="48" lean-forward="true" selection-start-line="562" selection-start-column="48" selection-end-line="562" selection-end-column="48" />
               <folding>
                 <element signature="e#656#672#0" expanded="true" />
               </folding>
@@ -272,14 +272,20 @@
       <option name="project" value="LOCAL" />
       <updated>1524604902859</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Backup before changing beliefs in q6">
+      <created>1524605867880</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1524605867880</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="992" y="24" width="928" height="1056" extended-state="4" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3760776" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3756906" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -320,7 +326,8 @@
     <MESSAGE value="Q6 beliefsList version (doesn't work)" />
     <MESSAGE value="Q5b working!" />
     <MESSAGE value="Just Q6 left!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Just Q6 left!" />
+    <MESSAGE value="Backup before changing beliefs in q6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Backup before changing beliefs in q6" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
@@ -535,8 +542,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="560" column="46" selection-start-line="560" selection-start-column="46" selection-end-line="560" selection-end-column="46" />
+        <state relative-caret-position="450">
+          <caret line="562" column="48" lean-forward="true" selection-start-line="562" selection-start-column="48" selection-end-line="562" selection-end-column="48" />
           <folding>
             <element signature="e#656#672#0" expanded="true" />
           </folding>
