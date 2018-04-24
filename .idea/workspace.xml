@@ -17,8 +17,8 @@
       <file leaf-file-name="inference.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tracking/inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="552" column="23" lean-forward="true" selection-start-line="552" selection-start-column="23" selection-end-line="552" selection-end-column="23" />
+            <state relative-caret-position="486">
+              <caret line="599" column="51" lean-forward="true" selection-start-line="599" selection-start-column="51" selection-end-line="599" selection-end-column="51" />
               <folding>
                 <element signature="e#656#672#0" expanded="true" />
               </folding>
@@ -258,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524548678714</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Q5b working!">
+      <created>1524549921567</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1524549921567</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -268,13 +275,13 @@
       <window_info content_ui="combo" id="Project" order="0" weight="0.3760776" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -308,6 +315,23 @@
     <option name="LAST_COMMIT_MESSAGE" value="Q5b working!" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/tracking/inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9486">
+          <caret line="527" column="38" lean-forward="true" selection-start-line="527" selection-start-column="38" selection-end-line="527" selection-end-column="38" />
+          <folding>
+            <element signature="e#656#672#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tracking/busters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9450">
@@ -503,8 +527,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="552" column="23" lean-forward="true" selection-start-line="552" selection-start-column="23" selection-end-line="552" selection-end-column="23" />
+        <state relative-caret-position="486">
+          <caret line="599" column="51" lean-forward="true" selection-start-line="599" selection-start-column="51" selection-end-line="599" selection-end-column="51" />
           <folding>
             <element signature="e#656#672#0" expanded="true" />
           </folding>

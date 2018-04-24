@@ -397,6 +397,17 @@ class ParticleFilter(InferenceModule):
                 soFar+=beliefs[key]
         return x
 
+    def sample_once(self, beliefs):
+        total = 0
+        for key in beliefs:
+            total += beliefs[key]
+        soFar = 0
+        randomNum = random.uniform(0, total)
+        for key in beliefs:
+            if soFar + beliefs[key] >= randomNum:
+                return key
+            soFar += beliefs[key]
+
 
 
 
@@ -407,13 +418,15 @@ class ParticleFilter(InferenceModule):
         Sample each particle's next state based on its current state and the
         gameState.
         """
-        newSelfBeliefs = DiscreteDistribution()
+        newParticles = list()
         oldSelfBeliefs = self.getBeliefDistribution()
         for ghostPos in self.particles:
+            newSelfBeliefs = DiscreteDistribution()
             newPosDist = self.getPositionDistribution(gameState, ghostPos)
             for newGhostPos in newPosDist:
                 newSelfBeliefs[newGhostPos] += newPosDist[newGhostPos] * oldSelfBeliefs[ghostPos]
-        self.particles = self.sample_randomly(newSelfBeliefs)
+            newParticles.append(self.sample_once(newSelfBeliefs))
+        self.particles = newParticles
 
 
     def getBeliefDistribution(self):
@@ -541,11 +554,11 @@ class JointParticleFilter(ParticleFilter):
                         beliefs[posList] = 0
 
         # Jail check, doesn't matter though
-        for j in range(self.numGhosts):
-            if observation[j] is None:
-                for posList in self.particles:
-                    if self.getJailPosition(j) != posList[j]:
-                        beliefs[posList] = 0
+        # for j in range(self.numGhosts):
+        #     if observation[j] is None:
+        #         for posList in self.particles:
+        #             if self.getJailPosition(j) != posList[j]:
+        #                 beliefs[posList] = 0
 
         beliefs.normalize()
         if beliefs.total() == 0:
