@@ -362,20 +362,14 @@ class ParticleFilter(InferenceModule):
         be reinitialized by calling initializeUniformly. The total method of
         the DiscreteDistribution may be useful.
         """
-        beliefs = DiscreteDistribution()
+        beliefs = self.getBeliefDistribution()
         pacmanPos = gameState.getPacmanPosition()
         jailPos = self.getJailPosition()
-        for i in range(self.numParticles):
-            beliefs[self.particles[i]]+=1
-        total=0
-        for key in beliefs:
-            total += beliefs[key]
-        if total == 0:
-            self.initializeUniformly(gameState)
-            return
+        #may need the zero check up here
+
+        #if observation is not None:
         for ghostPos in beliefs:
-            beliefs[ghostPos] = self.getObservationProb(observation,pacmanPos,ghostPos,jailPos) * \
-                                     beliefs[ghostPos]
+            beliefs[ghostPos] = self.getObservationProb(observation,pacmanPos,ghostPos,jailPos) * beliefs[ghostPos]
         beliefs[jailPos] = 0 #maybe need this?
         beliefs.normalize()
         total = 0
@@ -384,22 +378,26 @@ class ParticleFilter(InferenceModule):
         if total==0:
             self.initializeUniformly(gameState)
         else:
-            print(beliefs)
+            #print(beliefs)
             self.particles = self.sample_randomly(beliefs)
+        #else:
+        #    self.particles = [jailPos]*self.numParticles
 
 
 
     def sample_randomly(self, beliefs):
         x = []
+        total = 0
+        for key in beliefs:
+            total+=beliefs[key]
         for i in range(self.numParticles):
-            randomNum = random.random()
-            total = 0
-            best = None
+            soFar = 0
+            randomNum = random.uniform(0, total)
             for key in beliefs:
-                total += beliefs[key]
-                if randomNum<= total:
+                if soFar + beliefs[key]>=randomNum:
                     x.append(key)
-                    continue
+                    break
+                soFar+=beliefs[key]
         return x
 
 
@@ -412,7 +410,6 @@ class ParticleFilter(InferenceModule):
         Sample each particle's next state based on its current state and the
         gameState.
         """
-        "*** YOUR CODE HERE ***"
         newSelfBeliefs = DiscreteDistribution()
         oldSelfBeliefs = self.getBeliefDistribution()
         for ghostPos in self.particles:
@@ -461,7 +458,9 @@ class JointParticleFilter(ParticleFilter):
         uniform prior.
         """
         self.particles = []
-        "*** YOUR CODE HERE ***"
+        uniformList = list(itertools.product(self.legalPositions, repeat=self.numGhosts))
+        for i in range(self.numParticles):
+            self.particles.append(random.choice(uniformList))
 
     def addGhostAgent(self, agent):
         """
@@ -506,10 +505,23 @@ class JointParticleFilter(ParticleFilter):
 
             # now loop through and update each entry in newParticle...
             "*** YOUR CODE HERE ***"
-
+            for i in range(len(newParticle)):
+                newPosDist = self.getPositionDistribution(gameState, newParticle, index=i, agent=self.ghostAgents[i])
+                newParticle[i] = self.sample_once(newPosDist)
             """*** END YOUR CODE HERE ***"""
             newParticles.append(tuple(newParticle))
         self.particles = newParticles
+
+    def sample_once(self, beliefs):
+        total = 0
+        for key in beliefs:
+            total+=beliefs[key]
+        soFar = 0
+        randomNum = random.uniform(0, total)
+        for key in beliefs:
+            if soFar + beliefs[key]>=randomNum:
+                return key
+            soFar+=beliefs[key]
 
 
 # One JointInference module is shared globally across instances of MarginalInference
