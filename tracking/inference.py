@@ -171,7 +171,18 @@ class InferenceModule:
         """
         Return the probability P(noisyDistance | pacmanPosition, ghostPosition).
         """
-        "*** YOUR CODE HERE ***"
+        if noisyDistance is None:
+            if ghostPosition==jailPosition:
+                return 1
+            else:
+                return 0
+        else:
+            if ghostPosition==jailPosition:
+                return 0
+            else:
+                return busters.getObservationProbability(noisyDistance,manhattanDistance(pacmanPosition, ghostPosition))
+
+
 
     def setGhostPosition(self, gameState, ghostPosition, index):
         """
@@ -281,14 +292,8 @@ class ExactInference(InferenceModule):
 
         pacmanPos = gameState.getPacmanPosition()
         jailPos = self.getJailPosition()
-        if (observation == None):
-            for ghostPos in self.allPositions:
-                self.beliefs[ghostPos] = 0
-            self.beliefs[jailPos] = 1
-        else:
-            for ghostPos in self.allPositions:
-                self.beliefs[ghostPos] = busters.getObservationProbability(observation,manhattanDistance(pacmanPos, ghostPos))*self.beliefs[ghostPos]
-            self.beliefs[jailPos] = 0
+        for ghostPos in self.allPositions:
+            self.beliefs[ghostPos] = self.getObservationProb(observation,pacmanPos,ghostPos,jailPos)*self.beliefs[ghostPos]
         self.beliefs.normalize()
 
 
@@ -373,8 +378,7 @@ class ParticleFilter(InferenceModule):
                 self.initializeUniformly(gameState)
                 return
             for ghostPos in beliefs:
-                beliefs[ghostPos] = busters.getObservationProbability(observation,
-                                                                           manhattanDistance(pacmanPos, ghostPos)) * \
+                beliefs[ghostPos] = self.getObservationProb(observation,pacmanPos,ghostPos,jailPos) * \
                                          beliefs[ghostPos]
             beliefs[jailPos] = 0
             beliefs.normalize()
@@ -387,7 +391,6 @@ class ParticleFilter(InferenceModule):
             if total==0:
                 self.initializeUniformly(gameState)
             else:
-                print(beliefs)
                 self.particles = self.sample_randomly(beliefs)
 
 

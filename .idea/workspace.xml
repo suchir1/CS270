@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d2a35550-c7c5-493a-8e50-5973020ae80a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tracking/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/tracking/inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tracking/test_cases/q5a/1-JointParticleInit.test" beforeDir="false" afterPath="$PROJECT_DIR$/tracking/test_cases/q5a/1-JointParticleInit.test" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,23 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="busters.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tracking/busters.py">
+      <file leaf-file-name="inference.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tracking/inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+            <state relative-caret-position="356">
+              <caret line="193" column="70" selection-start-line="193" selection-start-column="70" selection-end-line="193" selection-end-column="70" />
+              <folding>
+                <element signature="e#656#672#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inference.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tracking/inference.py">
+      <file leaf-file-name="busters.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tracking/busters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="359" column="34" lean-forward="true" selection-start-line="359" selection-start-column="34" selection-end-line="359" selection-end-column="34" />
-              <folding>
-                <element signature="e#656#672#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="432">
+              <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -39,10 +41,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>flipcoin</find>
-      <find>getobservation</find>
       <find>distance</find>
       <find>self.beliefs</find>
       <find>print</find>
+      <find>busters</find>
+      <find>getobservation</find>
     </findStrings>
     <replaceStrings>
       <replace>beliefs</replace>
@@ -210,14 +213,21 @@
       <option name="project" value="LOCAL" />
       <updated>1524105490627</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Maybe (hopefully) the autograder is wrong?">
+      <created>1524106308933</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1524106308933</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="992" y="24" width="928" height="1056" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3760776" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.3760776" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -255,6 +265,40 @@
     <option name="LAST_COMMIT_MESSAGE" value="Maybe (hopefully) the autograder is wrong?" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/tracking/busters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tracking/inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6462">
+          <caret line="359" column="34" selection-start-line="359" selection-start-column="34" selection-end-line="359" selection-end-column="34" />
+          <folding>
+            <element signature="e#656#672#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tracking/busters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tracking/inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6462">
+          <caret line="359" column="34" lean-forward="true" selection-start-line="359" selection-start-column="34" selection-end-line="359" selection-end-column="34" />
+          <folding>
+            <element signature="e#656#672#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tracking/busters.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="738">
@@ -383,13 +427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tracking/busters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tracking/autograder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -397,10 +434,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tracking/busters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tracking/inference.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="359" column="34" lean-forward="true" selection-start-line="359" selection-start-column="34" selection-end-line="359" selection-end-column="34" />
+        <state relative-caret-position="356">
+          <caret line="193" column="70" selection-start-line="193" selection-start-column="70" selection-end-line="193" selection-end-column="70" />
           <folding>
             <element signature="e#656#672#0" expanded="true" />
           </folding>

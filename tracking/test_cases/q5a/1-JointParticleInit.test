@@ -20,7 +20,7 @@ observe: "False"
 
 elapse: "False"
 
-checkUniform: "True"
+checkUniform: "False"
 maxMoves: "1"
 
 numGhosts: "2"
