@@ -547,10 +547,10 @@ class JointParticleFilter(ParticleFilter):
         pacmanPos = gameState.getPacmanPosition()
         beliefs = DiscreteDistribution()
         initializeUniformly = True
-        for posList in self.particles:
-            for i in range(self.numGhosts):
-                beliefs[posList] += 1
-        beliefs.normalize()
+        # for posList in self.particles:
+        #     for i in range(self.numGhosts):
+        #         beliefs[posList] += 1
+        # beliefs.normalize()
         for posList in self.particles:
             prob = 1
             for i in range(self.numGhosts):
@@ -572,7 +572,7 @@ class JointParticleFilter(ParticleFilter):
         #                 beliefs[posList] = 0
 
         beliefs.normalize()
-        if beliefs.total() == 0 or initializeUniformly or beliefs.sample() is None:
+        if beliefs.total() == 0: #or initializeUniformly or beliefs.sample() is None:
             self.initializeUniformly(gameState)
             #Jaily bois
             # for i in range(self.numGhosts):
@@ -609,7 +609,7 @@ class JointParticleFilter(ParticleFilter):
             # now loop through and update each entry in newParticle...
             "*** YOUR CODE HERE ***"
             for i in range(len(newParticle)):
-                newParticle[i] = self.getPositionDistribution(gameState, newParticle, index=i, agent=self.ghostAgents[i]).sample()
+                newParticle[i] = self.getPositionDistribution(gameState, oldParticle, index=i, agent=self.ghostAgents[i]).sample()
             """*** END YOUR CODE HERE ***"""
             newParticles.append(tuple(newParticle))
         self.particles = newParticles
